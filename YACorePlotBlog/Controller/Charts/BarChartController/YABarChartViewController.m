@@ -45,7 +45,7 @@
     
     //customize your chart basic design here
     self.view.barWidth = 5.f;
-    self.view.distanceBetweenBars = 10.f;
+    self.view.distanceBetweenBars = 5.f;
     
     NSLog(@"%@", [YAExercise MR_findAll]);
 }

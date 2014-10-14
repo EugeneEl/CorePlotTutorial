@@ -79,6 +79,10 @@ static CGFloat const kMinimalDegreesToDisplay = 3.f;
     
     //disable axis for pie chart
     self.graph.axisSet = nil;
+    
+    _pieInnerCornerRadius = kPieInnerRadius;
+    _pieRadius = kPieRadius;
+    _borderLineWidth = kPieBorderWidth;
 }
 
 #pragma mark - Public
@@ -96,14 +100,14 @@ static CGFloat const kMinimalDegreesToDisplay = 3.f;
         // Add pie chart
         CPTPieChart *piePlot = [[CPTPieChart alloc] init];
         piePlot.dataSource      = self;
-        piePlot.pieRadius = _pieRadius ? _pieRadius : kPieRadius;
-        piePlot.pieInnerRadius = _pieInnerCornerRadius ? _pieInnerCornerRadius: kPieInnerRadius;
+        piePlot.pieRadius = _pieRadius;
+        piePlot.pieInnerRadius = _pieInnerCornerRadius;
         piePlot.identifier      = @"Pie Chart 1";
         piePlot.startAngle      = kStartDrawingPoint;
         piePlot.sliceDirection  = CPTPieDirectionCounterClockwise;
         CPTMutableLineStyle *lineStyle = [CPTMutableLineStyle lineStyle];
         lineStyle.lineColor = [CPTColor whiteColor];
-        lineStyle.lineWidth = _borderLineWidth ? _borderLineWidth : kPieBorderWidth;
+        lineStyle.lineWidth = _borderLineWidth;
         piePlot.borderLineStyle = lineStyle;
         
         [self.graph addPlot:piePlot];

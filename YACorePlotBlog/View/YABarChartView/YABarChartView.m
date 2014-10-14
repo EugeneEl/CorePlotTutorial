@@ -118,6 +118,9 @@ static NSUInteger const kMultiplierToAdjustAxisYSize = 10;
     axisSet.xAxis.minorTickLength = kMinorTickLength;
     
     axisSet.xAxis.majorGridLineStyle = lineStyle;
+    
+    _barWidth = kBarWidth;
+    _distanceBetweenBars  = kBarOffset;
 }
 
 
@@ -133,10 +136,8 @@ static NSUInteger const kMultiplierToAdjustAxisYSize = 10;
         plot.dataSource = self;
         plot.delegate = self;
         [plot setBarsAreHorizontal:YES];
-        plot.barWidth =  _barWidth ? [[NSDecimalNumber numberWithFloat:_barWidth] decimalValue]: [[NSDecimalNumber numberWithFloat:kBarWidth] decimalValue];        
-        plot.barOffset =  _distanceBetweenBars ? [[NSDecimalNumber numberWithFloat:_distanceBetweenBars] decimalValue]: [[NSDecimalNumber numberWithFloat:kBarOffset] decimalValue];
-        
-        plot.barOffset = [[NSDecimalNumber numberWithFloat:kBarOffset] decimalValue];
+        plot.barWidth = [[NSDecimalNumber numberWithFloat:_barWidth] decimalValue];
+        plot.barOffset = [[NSDecimalNumber numberWithFloat:_distanceBetweenBars] decimalValue];
         [plot setBarsAreHorizontal:YES];
         // Remove bar outlines
         CPTMutableLineStyle *borderLineStyle = [CPTMutableLineStyle lineStyle];
