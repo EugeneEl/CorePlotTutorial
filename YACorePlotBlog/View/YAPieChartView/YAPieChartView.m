@@ -152,7 +152,7 @@ static CGFloat const kMinimalDegreesToDisplay = 3.f;
 }
 
 - (void)setPieInnerCornerRadius:(CGFloat)pieInnerCornerRadius {
-    if (!(_pieInnerCornerRadius == _pieInnerCornerRadius)) {
+    if (!(_pieInnerCornerRadius == pieInnerCornerRadius)) {
         _pieInnerCornerRadius = pieInnerCornerRadius;
         
         [self reloadData];
@@ -160,7 +160,7 @@ static CGFloat const kMinimalDegreesToDisplay = 3.f;
 }
 
 - (void)setPieRadius:(CGFloat)pieRadius {
-    if (!(_pieRadius == _pieRadius)) {
+    if (!(_pieRadius == pieRadius)) {
         _pieRadius = pieRadius;
         
         [self reloadData];
