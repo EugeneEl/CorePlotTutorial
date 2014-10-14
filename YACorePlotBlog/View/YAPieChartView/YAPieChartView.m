@@ -79,22 +79,6 @@ static CGFloat const kMinimalDegreesToDisplay = 3.f;
     
     //disable axis for pie chart
     self.graph.axisSet = nil;
-    
-    // Add pie chart
-    CPTPieChart *piePlot = [[CPTPieChart alloc] init];
-    piePlot.dataSource      = self;
-    piePlot.pieInnerRadius = kPieInnerRadius;
-    piePlot.pieRadius = kPieRadius;
-    piePlot.identifier      = @"Pie Chart 1";
-    piePlot.startAngle      = kStartDrawingPoint;
-    piePlot.sliceDirection  = CPTPieDirectionCounterClockwise;
-    CPTMutableLineStyle *lineStyle = [CPTMutableLineStyle lineStyle];
-    lineStyle.lineColor = [CPTColor whiteColor];
-    lineStyle.lineWidth = kPieBorderWidth;
-    piePlot.borderLineStyle = lineStyle;
-    
-    
-    [self.graph addPlot:piePlot];
 }
 
 #pragma mark - Public
@@ -106,6 +90,23 @@ static CGFloat const kMinimalDegreesToDisplay = 3.f;
     NSUInteger numberOfCharts = [_dataSource numberOfChartsInPieChartView:self];
     for (int i = 0; i < numberOfCharts; i ++) {
         totalAmount += [[[_dataSource pieChartView:self plotAtIndex:i] pieAmountForSectorSize] doubleValue];
+    }
+    
+    for (int i = 0; i < numberOfCharts; i++) {
+        // Add pie chart
+        CPTPieChart *piePlot = [[CPTPieChart alloc] init];
+        piePlot.dataSource      = self;
+        piePlot.pieRadius = _pieRadius ? _pieRadius : kPieRadius;
+        piePlot.pieInnerRadius = _pieInnerCornerRadius ? _pieInnerCornerRadius: kPieInnerRadius;
+        piePlot.identifier      = @"Pie Chart 1";
+        piePlot.startAngle      = kStartDrawingPoint;
+        piePlot.sliceDirection  = CPTPieDirectionCounterClockwise;
+        CPTMutableLineStyle *lineStyle = [CPTMutableLineStyle lineStyle];
+        lineStyle.lineColor = [CPTColor whiteColor];
+        lineStyle.lineWidth = _borderLineWidth ? _borderLineWidth : kPieBorderWidth;
+        piePlot.borderLineStyle = lineStyle;
+        
+        [self.graph addPlot:piePlot];
     }
     
     //calculating amount of data for 1 degree and muliplie it by number of minimal degrees to display
@@ -141,6 +142,30 @@ static CGFloat const kMinimalDegreesToDisplay = 3.f;
 - (void)setDataSource:(id<YAPieChartViewDataSource>)dataSource {
     if (![_dataSource isEqual:dataSource]) {
         _dataSource = dataSource;
+        
+        [self reloadData];
+    }
+}
+
+- (void)setPieInnerCornerRadius:(CGFloat)pieInnerCornerRadius {
+    if (!(_pieInnerCornerRadius == _pieInnerCornerRadius)) {
+        _pieInnerCornerRadius = pieInnerCornerRadius;
+        
+        [self reloadData];
+    }
+}
+
+- (void)setPieRadius:(CGFloat)pieRadius {
+    if (!(_pieRadius == _pieRadius)) {
+        _pieRadius = pieRadius;
+        
+        [self reloadData];
+    }
+}
+
+- (void)setBorderLineWidth:(CGFloat)borderLineWidth {
+    if (!(_borderLineWidth == borderLineWidth)) {
+        _borderLineWidth = borderLineWidth;
         
         [self reloadData];
     }

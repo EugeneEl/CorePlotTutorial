@@ -16,7 +16,10 @@ static CGFloat const kDefaultPaddingTop = 10.0f;
 static CGFloat const kDefaultPaddingRight = 10.0f;
 static CGFloat const kDefaultPaddingBottom = 20.0f;
 static CGFloat const kDefaultPaddingLeft = 40.0f;
-
+static CGFloat const kDefaultSectionWidth = 5.0f;
+static CGFloat const kDefaultXAxeLeftOffset = 5.0f;
+static CGFloat const kDefaultXAxeRightOffset = 5.0f;
+static CGFloat const kDefaultDistanceBetweenBars = 5.0f;
 
 @interface YAStackedBarChartView () <CPTBarPlotDataSource, CPTBarPlotDelegate>
 
@@ -102,6 +105,11 @@ static CGFloat const kDefaultPaddingLeft = 40.0f;
     y.axisLineStyle = gridLineStyle;
     y.minorTicksPerInterval = 5;
     y.labelFormatter = formatter;
+    
+    _distanceBetweenBars = kDefaultDistanceBetweenBars;
+    _sectionWidth = kDefaultSectionWidth;
+    _offsetFromLeft = kDefaultXAxeLeftOffset;
+    _offsetFromRight = kDefaultXAxeRightOffset;
 }
 
 #pragma mark - Public
@@ -127,7 +135,7 @@ static CGFloat const kDefaultPaddingLeft = 40.0f;
             borderLineStyle.lineColor = [CPTColor whiteColor];
             borderLineStyle.lineWidth = [@0.5 floatValue];
             plot.lineStyle = borderLineStyle;
-            plot.barWidth = CPTDecimalFromCGFloat(self.sectionWidth);
+            plot.barWidth = [[NSDecimalNumber numberWithFloat:_sectionWidth] decimalValue];
             plot.dataSource = self;
             
             //if current plot is first in section - barBasesVary = NO
@@ -182,11 +190,7 @@ static CGFloat const kDefaultPaddingLeft = 40.0f;
     plotSpace.xRange = [CPTPlotRange plotRangeWithLocation:[@0 decimalValue] length:[@(xAxisWidth) decimalValue]];
     
     CPTXYAxisSet *axisSet = (CPTXYAxisSet *)self.graph.axisSet;
-    if (maxHeight > 12.0f) {
-        float intervalLength = maxHeight / kNumberOfTicksAtXAxes;
-        axisSet.yAxis.majorIntervalLength = CPTDecimalFromFloat(ceilf(intervalLength));
-        
-    } else if (maxHeight == 0) {
+    if (maxHeight == 0) {
         axisSet.yAxis.majorGridLineStyle = nil;
     }
     
