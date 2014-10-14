@@ -41,9 +41,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.dataSource = self;
-    self.view.sectionWidth = 30.f;
+    self.view.sectionWidth = 20.f;
     self.view.distanceBetweenBars = 14.f;
-    self.view.offsetFromLeft = 15.f;
+    self.view.offsetFromLeft = 5.f;
     self.view.offsetFromRight = 5.f;
 }
 

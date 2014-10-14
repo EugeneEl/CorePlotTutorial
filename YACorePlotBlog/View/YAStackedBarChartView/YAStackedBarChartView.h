@@ -8,6 +8,13 @@
 
 #import <CorePlot/CorePlot-CocoaTouch.h>
 
+typedef struct {
+    CGFloat top;
+    CGFloat right;
+    CGFloat bottom;
+    CGFloat left;
+} YAPaddingInset;
+
 @class YAStackedBarChartView;
 
 //protocol for out public datasource
@@ -31,5 +38,6 @@
 @property (nonatomic, assign) CGFloat distanceBetweenBars;
 @property (nonatomic, assign) CGFloat offsetFromLeft;
 @property (nonatomic, assign) CGFloat offsetFromRight;
+@property (nonatomic, assign) YAPaddingInset paddingInset;
 
 @end

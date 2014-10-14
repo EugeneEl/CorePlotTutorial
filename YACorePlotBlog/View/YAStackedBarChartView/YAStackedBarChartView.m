@@ -12,8 +12,13 @@ static CGFloat const kAxisXLabelTextFontSize = 12.0f;
 static CGFloat const kLineWidth = 1.0f;
 static CGFloat const kNumberOfTicksAtXAxes = 12.f;
 static CGFloat const kMultiplierForMimimalBarValue = 0.03f;
+static CGFloat const kDefaultPaddingTop = 10.0f;
+static CGFloat const kDefaultPaddingRight = 10.0f;
+static CGFloat const kDefaultPaddingBottom = 20.03f;
+static CGFloat const kDefaultPaddingLeft = 40.0f;
 
-@interface YAStackedBarChartView ()
+
+@interface YAStackedBarChartView () <CPTBarPlotDataSource, CPTBarPlotDelegate>
 
 @property (nonatomic, strong) CPTXYGraph *graph;
 @property (nonatomic, assign) NSInteger *numberOfRecords;
@@ -57,10 +62,10 @@ static CGFloat const kMultiplierForMimimalBarValue = 0.03f;
     borderLineStyle.lineColor = [CPTColor whiteColor];
     borderLineStyle.lineWidth = 2.0f;
     self.graph.plotAreaFrame.borderLineStyle = borderLineStyle;
-    self.graph.plotAreaFrame.paddingTop = 10.0;
-    self.graph.plotAreaFrame.paddingRight = 10.0;
-    self.graph.plotAreaFrame.paddingBottom = 20.0;
-    self.graph.plotAreaFrame.paddingLeft = 40.0;
+    self.graph.plotAreaFrame.paddingTop = kDefaultPaddingTop;
+    self.graph.plotAreaFrame.paddingRight = kDefaultPaddingRight;
+    self.graph.plotAreaFrame.paddingBottom = kDefaultPaddingBottom;
+    self.graph.plotAreaFrame.paddingLeft = kDefaultPaddingLeft;
     
     //set axes' line styles and interval ticks
     CPTMutableLineStyle *gridLineStyle = [CPTMutableLineStyle lineStyle];
@@ -277,6 +282,19 @@ static CGFloat const kMultiplierForMimimalBarValue = 0.03f;
 - (void)setOffsetFromRight:(CGFloat)offsetFromRight {
     if (!(_offsetFromRight == offsetFromRight)) {
         _offsetFromRight = offsetFromRight;
+        
+        [self reloadData];
+    }
+}
+
+- (void)setPaddingInset:(YAPaddingInset)paddingInset {
+    if ((_paddingInset.top != paddingInset.top) ||
+        (_paddingInset.right != paddingInset.right) ||
+        (_paddingInset.bottom != paddingInset.bottom) ||
+        (_paddingInset.left != paddingInset.left)
+        )  {
+        
+        _paddingInset = paddingInset;
         
         [self reloadData];
     }
