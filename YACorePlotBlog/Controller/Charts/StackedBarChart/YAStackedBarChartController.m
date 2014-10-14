@@ -40,11 +40,19 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    //customize your chart main design here
     self.view.dataSource = self;
     self.view.sectionWidth = 20.f;
     self.view.distanceBetweenBars = 14.f;
     self.view.offsetFromLeft = 5.f;
     self.view.offsetFromRight = 5.f;
+    YAPaddingInset inset = self.view.paddingInset;
+    inset.top = 5.f;
+    inset.right = 10.f;
+    inset.bottom = 20.f;
+    inset.left = 30.f;
+    self.view.paddingInset = inset;
 }
 
 #pragma mark - YAStackedBarChartViewDataSource

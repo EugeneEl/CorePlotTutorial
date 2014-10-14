@@ -14,7 +14,7 @@ static CGFloat const kNumberOfTicksAtXAxes = 12.f;
 static CGFloat const kMultiplierForMimimalBarValue = 0.03f;
 static CGFloat const kDefaultPaddingTop = 10.0f;
 static CGFloat const kDefaultPaddingRight = 10.0f;
-static CGFloat const kDefaultPaddingBottom = 20.03f;
+static CGFloat const kDefaultPaddingBottom = 20.0f;
 static CGFloat const kDefaultPaddingLeft = 40.0f;
 
 
@@ -174,8 +174,12 @@ static CGFloat const kDefaultPaddingLeft = 40.0f;
         maxHeight = fmaxf(maxHeight, sectionHeight);
     }
     
+    //calculatedXAxisWidth
+    CGFloat xAxisWidth = 0.f;
+    xAxisWidth +=_offsetFromLeft + _sectionWidth * numberOfSection + _distanceBetweenBars * (numberOfSection - 1) + _offsetFromRight;
+    
     plotSpace.yRange = [CPTPlotRange plotRangeWithLocation:[@0 decimalValue] length:[@(maxHeight+5.f) decimalValue]];
-    plotSpace.xRange = [CPTPlotRange plotRangeWithLocation:[@0 decimalValue] length:[@(242) decimalValue]];
+    plotSpace.xRange = [CPTPlotRange plotRangeWithLocation:[@0 decimalValue] length:[@(xAxisWidth) decimalValue]];
     
     CPTXYAxisSet *axisSet = (CPTXYAxisSet *)self.graph.axisSet;
     if (maxHeight > 12.0f) {
