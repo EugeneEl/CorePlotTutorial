@@ -75,4 +75,9 @@
     return [object color];
 }
 
+- (NSString *)stackedBarChartView:(YAStackedBarChartView *)stackedBarChartView stringLegendForRowAtIndexPath:(NSIndexPath *)indexPath {
+    YAStackedBarChartObject *object = [self.dataSource objectAtIndexPath:indexPath];
+    return [object stringForLegend];
+}
+
 @end

@@ -61,4 +61,7 @@
     return [UIColor ya_colorFromHexString:self.exercise.colorHexName];
 }
 
+- (NSString *)stringForLegend {
+    return [NSString stringWithFormat:@"%@ %d", self.exercise.name, (int)([self height])];
+}
 @end

@@ -22,5 +22,6 @@
 //any stackedBarChartObject can return its color and height
 - (CGFloat)height;
 - (UIColor *)color;
+- (NSString *)stringForLegend;
 
 @end

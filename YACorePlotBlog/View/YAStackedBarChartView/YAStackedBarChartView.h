@@ -25,6 +25,8 @@ typedef struct {
 
 - (CGFloat)stackedBarChartView:(YAStackedBarChartView *)stackedBarChartView heightForRowAtIndexPath:(NSIndexPath *)indexPath;
 - (UIColor *)stackedBarChartView:(YAStackedBarChartView *)stackedBarChartView colorForRowAtIndexPath:(NSIndexPath *)indexPath;
+- (NSString *)stackedBarChartView:(YAStackedBarChartView *)stackedBarChartView stringLegendForRowAtIndexPath:(NSIndexPath *)indexPath;
+
 
 @end
 

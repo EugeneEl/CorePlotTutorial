@@ -14,7 +14,7 @@ static CGFloat const kNumberOfTicksAtXAxes = 12.f;
 static CGFloat const kMultiplierForMimimalBarValue = 0.03f;
 static CGFloat const kDefaultPaddingTop = 10.0f;
 static CGFloat const kDefaultPaddingRight = 10.0f;
-static CGFloat const kDefaultPaddingBottom = 20.0f;
+static CGFloat const kDefaultPaddingBottom = 80.0f;
 static CGFloat const kDefaultPaddingLeft = 40.0f;
 static CGFloat const kDefaultSectionWidth = 5.0f;
 static CGFloat const kDefaultXAxeLeftOffset = 5.0f;
@@ -52,7 +52,8 @@ static CGFloat const kDefaultDistanceBetweenBars = 5.0f;
 #pragma mark - Private
 
 - (void)commonInit {
-    self.graph = [[CPTXYGraph alloc] initWithFrame:CGRectZero];
+    
+    self.graph = [[CPTXYGraph alloc] initWithFrame:self.bounds];
     [self setHostedGraph:self.graph];
     
     [self.graph setValue:@(0.f) forKey:@"paddingLeft"];
@@ -122,6 +123,8 @@ static CGFloat const kDefaultDistanceBetweenBars = 5.0f;
         [self.graph removePlot:plot];
     }];
     
+    NSUInteger totalNumberOfRows = 0;
+    
     // Add new plots
     NSInteger numberOfSection = [self.dataSource numberOfSectionInStackedBarChartView:self];
     for (NSInteger section = 0; section < numberOfSection; section++) {
@@ -147,9 +150,37 @@ static CGFloat const kDefaultDistanceBetweenBars = 5.0f;
             //provide our plot with identifier - for this we made all staff with sections and objects
             //we can work with each plot as with row in table view, but placed into section.
             plot.identifier = [NSIndexPath indexPathForRow:row inSection:section];
+            
+            totalNumberOfRows ++;
             [self.graph addPlot:plot toPlotSpace:plotSpace];
         }
+        
     }
+    
+    //Add legend to graph
+    CPTLegend *theLegend = [CPTLegend legendWithGraph:self.graph];
+    theLegend.numberOfColumns = [self.dataSource numberOfSectionInStackedBarChartView:self];
+    //theLegend.numberOfRows = totalNumberOfRows;
+   
+    theLegend.fill = [CPTFill fillWithColor:[CPTColor whiteColor]];
+    theLegend.borderLineStyle = [CPTLineStyle lineStyle];
+    theLegend.cornerRadius = 5.0;
+    theLegend.paddingLeft = 0.f;
+    
+    //TODO: refactor this part, please
+   // CGFloat legendPadding = -(self.bounds.size.width / 8);
+   // self.graph.legendDisplacement = CGPointMake(legendPadding + 55, 0.0);
+    self.graph.legend = theLegend;
+    
+    
+    UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, 800, 800)];
+    scrollView.showsHorizontalScrollIndicator = YES;
+    scrollView.clipsToBounds = YES;
+    scrollView.userInteractionEnabled = YES;
+    scrollView.contentSize = CGSizeMake(5000.f, scrollView.contentSize.height);
+    [scrollView.layer addSublayer:self.graph.legend];
+    
+    [self addSubview:scrollView];
     
     // Calculate XY ranges
     
@@ -164,6 +195,8 @@ static CGFloat const kDefaultDistanceBetweenBars = 5.0f;
         }
         maxHeight = fmaxf(maxHeight, sectionHeight);
     }
+    
+    
     
     self.defaultMinimalHegiht = maxHeight * kMultiplierForMimimalBarValue;
     
@@ -251,6 +284,15 @@ static CGFloat const kDefaultDistanceBetweenBars = 5.0f;
     UIColor *color = [self.dataSource stackedBarChartView:self colorForRowAtIndexPath:indexPath];
     return [CPTFill fillWithColor:[CPTColor colorWithCGColor:[color CGColor]]];
 }
+
+- (NSString *)legendTitleForBarPlot:(CPTBarPlot *)barPlot recordIndex:(NSUInteger)idx {
+    NSIndexPath *indexPath = (NSIndexPath *)barPlot.identifier;
+    NSLog(@"indexPath:%ld %ld",(long)indexPath.section, (long)indexPath.row);
+    
+    NSString *stringForLegend = [self.dataSource stackedBarChartView:self stringLegendForRowAtIndexPath:indexPath];
+    return stringForLegend;
+}
+
 
 #pragma mark - Properties
 
