@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6249" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="hWb-uL-kh7">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6249" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="WZa-t8-fa2">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6243"/>
@@ -9,7 +9,6 @@
         <!--Pie-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
                 <viewController id="vXZ-lx-hvc" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
@@ -19,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <containerView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fAo-6w-UJa" customClass="CPTGraphHostingView">
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fAo-6w-UJa" customClass="CPTGraphHostingView">
                                 <rect key="frame" x="16" y="50" width="288" height="318"/>
                                 <connections>
                                     <segue destination="nKs-s9-pL1" kind="embed" id="s2P-pR-KdO"/>
@@ -36,6 +35,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Pie" id="u4U-pM-MtH"/>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="35" y="116"/>
         </scene>
@@ -63,6 +63,38 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MGW-g3-qyG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="513" y="-9"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="E21-i0-dFE">
+            <objects>
+                <viewController id="WZa-t8-fa2" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="uxb-5d-GRy"/>
+                        <viewControllerLayoutGuide type="bottom" id="KyX-A1-RLT"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="RKg-0f-min">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d7o-4i-HBp" customClass="CPTGraphHostingView">
+                                <rect key="frame" x="16" y="30" width="288" height="338"/>
+                                <connections>
+                                    <segue destination="G57-uY-Mt1" kind="embed" id="h3R-bZ-0F0"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="d7o-4i-HBp" firstAttribute="leading" secondItem="RKg-0f-min" secondAttribute="leadingMargin" id="RpN-ja-0uo"/>
+                            <constraint firstItem="d7o-4i-HBp" firstAttribute="top" secondItem="RKg-0f-min" secondAttribute="topMargin" constant="30" id="iiQ-GQ-yGu"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="d7o-4i-HBp" secondAttribute="trailing" id="zW7-yF-ucd"/>
+                            <constraint firstItem="KyX-A1-RLT" firstAttribute="top" secondItem="d7o-4i-HBp" secondAttribute="bottom" constant="200" id="zpY-jp-KkU"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8qx-Wp-Ukt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="35" y="789"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="vxS-Xl-zT5">
@@ -121,6 +153,28 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MHw-7R-jjs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1560" y="-19"/>
+        </scene>
+        <!--Stacked Bar Chart Controller-->
+        <scene sceneID="UGm-hS-65Z">
+            <objects>
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="G57-uY-Mt1" customClass="YAStackedBarChartController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="DUi-GE-iFU"/>
+                        <viewControllerLayoutGuide type="bottom" id="MFa-dO-chN"/>
+                    </layoutGuides>
+                    <view key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="rF0-Qz-Ky7" customClass="YAStackedBarChartView">
+                        <rect key="frame" x="0.0" y="0.0" width="288" height="338"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <toolbarItems/>
+                    <connections>
+                        <outlet property="view" destination="rF0-Qz-Ky7" id="ufu-dS-ePo"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sVd-ar-D74" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="421" y="674"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

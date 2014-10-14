@@ -8,15 +8,20 @@
 
 #import "YABarChartContainerViewController.h"
 
-@interface YABarChartContainerViewController ()
+//model
+#import "YAStackedBarChartObject.h"
+#import "YAStackedBarChartSectionDataSource.h"
+
+//view
+#import "YAStackedBarChartView.h"
+
+@interface YABarChartContainerViewController () <YAStackedBarChartViewDataSource>
+
+
 
 @end
 
 @implementation YABarChartContainerViewController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view.
-}
 
 @end

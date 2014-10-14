@@ -21,6 +21,12 @@
 		3E18984919EE9FE800804CCC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E18982B19EE9FE800804CCC /* UIKit.framework */; };
 		3E18985119EE9FE800804CCC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3E18984F19EE9FE800804CCC /* InfoPlist.strings */; };
 		3E18985319EE9FE800804CCC /* YACorePlotBlogTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E18985219EE9FE800804CCC /* YACorePlotBlogTests.m */; };
+		3EA9E80319F0D76700F73C3D /* YAStackedBarChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EA9E80219F0D76700F73C3D /* YAStackedBarChartView.m */; };
+		3EA9E80819F0DDB300F73C3D /* YAStackedBarChartObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EA9E80719F0DDB300F73C3D /* YAStackedBarChartObject.m */; };
+		3EA9E80B19F0DDCD00F73C3D /* YAStackedBarChartSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EA9E80A19F0DDCD00F73C3D /* YAStackedBarChartSection.m */; };
+		3EA9E81019F0E51E00F73C3D /* NSDate+YABeginAndAndOfDay.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EA9E80F19F0E51E00F73C3D /* NSDate+YABeginAndAndOfDay.m */; };
+		3EA9E81319F0F91700F73C3D /* YAStackedBarChartSectionDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EA9E81219F0F91700F73C3D /* YAStackedBarChartSectionDataSource.m */; };
+		3EA9E81619F100FA00F73C3D /* YAStackedBarChartController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EA9E81519F100FA00F73C3D /* YAStackedBarChartController.m */; };
 		3EBBC4D219EFF76500949778 /* YAPieChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EBBC4D119EFF76500949778 /* YAPieChartView.m */; };
 		3EDA844019EEA28F00231395 /* YAAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EDA843D19EEA28F00231395 /* YAAppDelegate.m */; };
 		3EDA844619EEA61300231395 /* YAModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3EDA844419EEA61300231395 /* YAModel.xcdatamodeld */; };
@@ -67,6 +73,18 @@
 		3E18984E19EE9FE800804CCC /* YACorePlotBlogTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "YACorePlotBlogTests-Info.plist"; sourceTree = "<group>"; };
 		3E18985019EE9FE800804CCC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		3E18985219EE9FE800804CCC /* YACorePlotBlogTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YACorePlotBlogTests.m; sourceTree = "<group>"; };
+		3EA9E80119F0D76700F73C3D /* YAStackedBarChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YAStackedBarChartView.h; sourceTree = "<group>"; };
+		3EA9E80219F0D76700F73C3D /* YAStackedBarChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YAStackedBarChartView.m; sourceTree = "<group>"; };
+		3EA9E80619F0DDB300F73C3D /* YAStackedBarChartObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YAStackedBarChartObject.h; sourceTree = "<group>"; };
+		3EA9E80719F0DDB300F73C3D /* YAStackedBarChartObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YAStackedBarChartObject.m; sourceTree = "<group>"; };
+		3EA9E80919F0DDCD00F73C3D /* YAStackedBarChartSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YAStackedBarChartSection.h; sourceTree = "<group>"; };
+		3EA9E80A19F0DDCD00F73C3D /* YAStackedBarChartSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YAStackedBarChartSection.m; sourceTree = "<group>"; };
+		3EA9E80E19F0E51E00F73C3D /* NSDate+YABeginAndAndOfDay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+YABeginAndAndOfDay.h"; sourceTree = "<group>"; };
+		3EA9E80F19F0E51E00F73C3D /* NSDate+YABeginAndAndOfDay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+YABeginAndAndOfDay.m"; sourceTree = "<group>"; };
+		3EA9E81119F0F91700F73C3D /* YAStackedBarChartSectionDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YAStackedBarChartSectionDataSource.h; sourceTree = "<group>"; };
+		3EA9E81219F0F91700F73C3D /* YAStackedBarChartSectionDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YAStackedBarChartSectionDataSource.m; sourceTree = "<group>"; };
+		3EA9E81419F100FA00F73C3D /* YAStackedBarChartController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YAStackedBarChartController.h; sourceTree = "<group>"; };
+		3EA9E81519F100FA00F73C3D /* YAStackedBarChartController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YAStackedBarChartController.m; sourceTree = "<group>"; };
 		3EBBC4D019EFF76500949778 /* YAPieChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YAPieChartView.h; sourceTree = "<group>"; };
 		3EBBC4D119EFF76500949778 /* YAPieChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YAPieChartView.m; sourceTree = "<group>"; };
 		3EBBC4D419EFFABD00949778 /* YAPieChartProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YAPieChartProtocol.h; sourceTree = "<group>"; };
@@ -125,15 +143,14 @@
 				3E022F2719F02193005F7787 /* YAPieChartViewController.h */,
 				3E022F2819F02193005F7787 /* YAPieChartViewController.m */,
 			);
-			name = PieChartController;
-			path = Charts/PieChartController;
+			path = PieChartController;
 			sourceTree = "<group>";
 		};
 		3E18981B19EE9FE800804CCC = {
 			isa = PBXGroup;
 			children = (
-				3EDA846719EEB18C00231395 /* Helpers */,
 				3E18983919EE9FE800804CCC /* Main.storyboard */,
+				3EDA846719EEB18C00231395 /* Helpers */,
 				3EDA844319EEA29F00231395 /* Model */,
 				3EDA844219EEA29800231395 /* View */,
 				3EDA843B19EEA28F00231395 /* Controller */,
@@ -205,6 +222,54 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		3EA9E80019F0D6D300F73C3D /* YAStackedBarChartView */ = {
+			isa = PBXGroup;
+			children = (
+				3EA9E80119F0D76700F73C3D /* YAStackedBarChartView.h */,
+				3EA9E80219F0D76700F73C3D /* YAStackedBarChartView.m */,
+			);
+			path = YAStackedBarChartView;
+			sourceTree = "<group>";
+		};
+		3EA9E80419F0DD5F00F73C3D /* StackedBarChart */ = {
+			isa = PBXGroup;
+			children = (
+				3EA9E80519F0DD8A00F73C3D /* Helpers */,
+				3EA9E81419F100FA00F73C3D /* YAStackedBarChartController.h */,
+				3EA9E81519F100FA00F73C3D /* YAStackedBarChartController.m */,
+			);
+			path = StackedBarChart;
+			sourceTree = "<group>";
+		};
+		3EA9E80519F0DD8A00F73C3D /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				3EA9E80619F0DDB300F73C3D /* YAStackedBarChartObject.h */,
+				3EA9E80719F0DDB300F73C3D /* YAStackedBarChartObject.m */,
+				3EA9E80919F0DDCD00F73C3D /* YAStackedBarChartSection.h */,
+				3EA9E80A19F0DDCD00F73C3D /* YAStackedBarChartSection.m */,
+				3EA9E81119F0F91700F73C3D /* YAStackedBarChartSectionDataSource.h */,
+				3EA9E81219F0F91700F73C3D /* YAStackedBarChartSectionDataSource.m */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		3EA9E80C19F0E2D600F73C3D /* NSDate */ = {
+			isa = PBXGroup;
+			children = (
+				3EA9E80E19F0E51E00F73C3D /* NSDate+YABeginAndAndOfDay.h */,
+				3EA9E80F19F0E51E00F73C3D /* NSDate+YABeginAndAndOfDay.m */,
+			);
+			path = NSDate;
+			sourceTree = "<group>";
+		};
+		3EA9E80D19F0E2D600F73C3D /* UIColor */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = UIColor;
+			sourceTree = "<group>";
+		};
 		3EBBC4CF19EFF72D00949778 /* YAPieChartView */ = {
 			isa = PBXGroup;
 			children = (
@@ -226,7 +291,6 @@
 		3EDA843B19EEA28F00231395 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				3E022F2619F02158005F7787 /* PieChartController */,
 				3EDA845F19EEAFDE00231395 /* Charts */,
 				3EDA843C19EEA28F00231395 /* YAAppDelegate.h */,
 				3EDA843D19EEA28F00231395 /* YAAppDelegate.m */,
@@ -238,6 +302,7 @@
 		3EDA844219EEA29800231395 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				3EA9E80019F0D6D300F73C3D /* YAStackedBarChartView */,
 				3EBBC4CF19EFF72D00949778 /* YAPieChartView */,
 				3EDA845519EEAE6200231395 /* YABarChartView */,
 			);
@@ -301,6 +366,8 @@
 		3EDA845F19EEAFDE00231395 /* Charts */ = {
 			isa = PBXGroup;
 			children = (
+				3EA9E80419F0DD5F00F73C3D /* StackedBarChart */,
+				3E022F2619F02158005F7787 /* PieChartController */,
 				3EDA846019EEAFDE00231395 /* BarChartController */,
 			);
 			path = Charts;
@@ -329,6 +396,8 @@
 		3EDA846819EEB1AF00231395 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				3EA9E80C19F0E2D600F73C3D /* NSDate */,
+				3EA9E80D19F0E2D600F73C3D /* UIColor */,
 				3EDA846919EEB1AF00231395 /* UIColor+YAColorWithHexString.h */,
 				3EDA846A19EEB1AF00231395 /* UIColor+YAColorWithHexString.m */,
 			);
@@ -471,18 +540,24 @@
 			files = (
 				3EBBC4D219EFF76500949778 /* YAPieChartView.m in Sources */,
 				3EDA845119EEA7AD00231395 /* YASet.m in Sources */,
+				3EA9E81319F0F91700F73C3D /* YAStackedBarChartSectionDataSource.m in Sources */,
 				3EDA844019EEA28F00231395 /* YAAppDelegate.m in Sources */,
 				3EDA844E19EEA78600231395 /* YAExercise.m in Sources */,
 				3EDA845C19EEAEB500231395 /* YAExercise+YABarChartProtocol.m in Sources */,
 				3EDA845419EEA89B00231395 /* YAExercise+YADefaultData.m in Sources */,
 				3EDA846319EEAFDE00231395 /* YABarChartViewController.m in Sources */,
 				3E18983419EE9FE800804CCC /* main.m in Sources */,
+				3EA9E81019F0E51E00F73C3D /* NSDate+YABeginAndAndOfDay.m in Sources */,
 				3EDA846619EEB05700231395 /* YABarChartContainerViewController.m in Sources */,
 				3EDA844619EEA61300231395 /* YAModel.xcdatamodeld in Sources */,
 				3E022F2919F02193005F7787 /* YAPieChartViewController.m in Sources */,
+				3EA9E80819F0DDB300F73C3D /* YAStackedBarChartObject.m in Sources */,
 				3EDA846B19EEB1AF00231395 /* UIColor+YAColorWithHexString.m in Sources */,
 				3EDA845919EEAE6200231395 /* YABarChartView.m in Sources */,
+				3EA9E81619F100FA00F73C3D /* YAStackedBarChartController.m in Sources */,
 				3E022F2C19F023B6005F7787 /* YAExercise+YAPieChartProtocol.m in Sources */,
+				3EA9E80319F0D76700F73C3D /* YAStackedBarChartView.m in Sources */,
+				3EA9E80B19F0DDCD00F73C3D /* YAStackedBarChartSection.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
