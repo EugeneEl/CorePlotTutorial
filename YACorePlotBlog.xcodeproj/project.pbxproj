@@ -20,12 +20,16 @@
 		3E18985119EE9FE800804CCC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3E18984F19EE9FE800804CCC /* InfoPlist.strings */; };
 		3E18985319EE9FE800804CCC /* YACorePlotBlogTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E18985219EE9FE800804CCC /* YACorePlotBlogTests.m */; };
 		3EDA844019EEA28F00231395 /* YAAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EDA843D19EEA28F00231395 /* YAAppDelegate.m */; };
-		3EDA844119EEA28F00231395 /* YAViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EDA843F19EEA28F00231395 /* YAViewController.m */; };
 		3EDA844619EEA61300231395 /* YAModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3EDA844419EEA61300231395 /* YAModel.xcdatamodeld */; };
 		3EDA844819EEA71800231395 /* YAExercises.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3EDA844719EEA71800231395 /* YAExercises.plist */; };
 		3EDA844E19EEA78600231395 /* YAExercise.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EDA844D19EEA78600231395 /* YAExercise.m */; };
 		3EDA845119EEA7AD00231395 /* YASet.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EDA845019EEA7AD00231395 /* YASet.m */; };
 		3EDA845419EEA89B00231395 /* YAExercise+YADefaultData.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EDA845319EEA89B00231395 /* YAExercise+YADefaultData.m */; };
+		3EDA845919EEAE6200231395 /* YABarChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EDA845819EEAE6200231395 /* YABarChartView.m */; };
+		3EDA845C19EEAEB500231395 /* YAExercise+YABarChartProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EDA845B19EEAEB500231395 /* YAExercise+YABarChartProtocol.m */; };
+		3EDA846319EEAFDE00231395 /* YABarChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EDA846219EEAFDE00231395 /* YABarChartViewController.m */; };
+		3EDA846619EEB05700231395 /* YABarChartContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EDA846519EEB05700231395 /* YABarChartContainerViewController.m */; };
+		3EDA846B19EEB1AF00231395 /* UIColor+YAColorWithHexString.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EDA846A19EEB1AF00231395 /* UIColor+YAColorWithHexString.m */; };
 		9DB9DD8CDF274C07B5CDC3E8 /* libPods-YACorePlotBlog.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DD830FEED37478FA9AC9EDC /* libPods-YACorePlotBlog.a */; };
 /* End PBXBuildFile section */
 
@@ -58,8 +62,6 @@
 		3E18985219EE9FE800804CCC /* YACorePlotBlogTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YACorePlotBlogTests.m; sourceTree = "<group>"; };
 		3EDA843C19EEA28F00231395 /* YAAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YAAppDelegate.h; sourceTree = "<group>"; };
 		3EDA843D19EEA28F00231395 /* YAAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YAAppDelegate.m; sourceTree = "<group>"; };
-		3EDA843E19EEA28F00231395 /* YAViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YAViewController.h; sourceTree = "<group>"; };
-		3EDA843F19EEA28F00231395 /* YAViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YAViewController.m; sourceTree = "<group>"; };
 		3EDA844519EEA61300231395 /* YAModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = YAModel.xcdatamodel; sourceTree = "<group>"; };
 		3EDA844719EEA71800231395 /* YAExercises.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = YAExercises.plist; sourceTree = "<group>"; };
 		3EDA844C19EEA78600231395 /* YAExercise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YAExercise.h; sourceTree = "<group>"; };
@@ -68,6 +70,17 @@
 		3EDA845019EEA7AD00231395 /* YASet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YASet.m; path = YASet/YASet.m; sourceTree = "<group>"; };
 		3EDA845219EEA89B00231395 /* YAExercise+YADefaultData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "YAExercise+YADefaultData.h"; sourceTree = "<group>"; };
 		3EDA845319EEA89B00231395 /* YAExercise+YADefaultData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "YAExercise+YADefaultData.m"; sourceTree = "<group>"; };
+		3EDA845619EEAE6200231395 /* YABarChartProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YABarChartProtocol.h; sourceTree = "<group>"; };
+		3EDA845719EEAE6200231395 /* YABarChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YABarChartView.h; sourceTree = "<group>"; };
+		3EDA845819EEAE6200231395 /* YABarChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YABarChartView.m; sourceTree = "<group>"; };
+		3EDA845A19EEAEB500231395 /* YAExercise+YABarChartProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "YAExercise+YABarChartProtocol.h"; sourceTree = "<group>"; };
+		3EDA845B19EEAEB500231395 /* YAExercise+YABarChartProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "YAExercise+YABarChartProtocol.m"; sourceTree = "<group>"; };
+		3EDA846119EEAFDE00231395 /* YABarChartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YABarChartViewController.h; sourceTree = "<group>"; };
+		3EDA846219EEAFDE00231395 /* YABarChartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YABarChartViewController.m; sourceTree = "<group>"; };
+		3EDA846419EEB05700231395 /* YABarChartContainerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YABarChartContainerViewController.h; sourceTree = "<group>"; };
+		3EDA846519EEB05700231395 /* YABarChartContainerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YABarChartContainerViewController.m; sourceTree = "<group>"; };
+		3EDA846919EEB1AF00231395 /* UIColor+YAColorWithHexString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+YAColorWithHexString.h"; sourceTree = "<group>"; };
+		3EDA846A19EEB1AF00231395 /* UIColor+YAColorWithHexString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+YAColorWithHexString.m"; sourceTree = "<group>"; };
 		6DD830FEED37478FA9AC9EDC /* libPods-YACorePlotBlog.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-YACorePlotBlog.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -99,6 +112,7 @@
 		3E18981B19EE9FE800804CCC = {
 			isa = PBXGroup;
 			children = (
+				3EDA846719EEB18C00231395 /* Helpers */,
 				3E18983919EE9FE800804CCC /* Main.storyboard */,
 				3EDA844319EEA29F00231395 /* Model */,
 				3EDA844219EEA29800231395 /* View */,
@@ -182,10 +196,9 @@
 		3EDA843B19EEA28F00231395 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				3EDA845F19EEAFDE00231395 /* Charts */,
 				3EDA843C19EEA28F00231395 /* YAAppDelegate.h */,
 				3EDA843D19EEA28F00231395 /* YAAppDelegate.m */,
-				3EDA843E19EEA28F00231395 /* YAViewController.h */,
-				3EDA843F19EEA28F00231395 /* YAViewController.m */,
 			);
 			name = Controller;
 			path = YACorePlotBlog/Controller;
@@ -194,6 +207,7 @@
 		3EDA844219EEA29800231395 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				3EDA845519EEAE6200231395 /* YABarChartView */,
 			);
 			name = View;
 			path = YACorePlotBlog/View;
@@ -232,10 +246,59 @@
 		3EDA844B19EEA77500231395 /* YAExerciseHelpers */ = {
 			isa = PBXGroup;
 			children = (
+				3EDA845A19EEAEB500231395 /* YAExercise+YABarChartProtocol.h */,
+				3EDA845B19EEAEB500231395 /* YAExercise+YABarChartProtocol.m */,
 				3EDA845219EEA89B00231395 /* YAExercise+YADefaultData.h */,
 				3EDA845319EEA89B00231395 /* YAExercise+YADefaultData.m */,
 			);
 			path = YAExerciseHelpers;
+			sourceTree = "<group>";
+		};
+		3EDA845519EEAE6200231395 /* YABarChartView */ = {
+			isa = PBXGroup;
+			children = (
+				3EDA845619EEAE6200231395 /* YABarChartProtocol.h */,
+				3EDA845719EEAE6200231395 /* YABarChartView.h */,
+				3EDA845819EEAE6200231395 /* YABarChartView.m */,
+			);
+			path = YABarChartView;
+			sourceTree = "<group>";
+		};
+		3EDA845F19EEAFDE00231395 /* Charts */ = {
+			isa = PBXGroup;
+			children = (
+				3EDA846019EEAFDE00231395 /* BarChartController */,
+			);
+			path = Charts;
+			sourceTree = "<group>";
+		};
+		3EDA846019EEAFDE00231395 /* BarChartController */ = {
+			isa = PBXGroup;
+			children = (
+				3EDA846119EEAFDE00231395 /* YABarChartViewController.h */,
+				3EDA846219EEAFDE00231395 /* YABarChartViewController.m */,
+				3EDA846419EEB05700231395 /* YABarChartContainerViewController.h */,
+				3EDA846519EEB05700231395 /* YABarChartContainerViewController.m */,
+			);
+			path = BarChartController;
+			sourceTree = "<group>";
+		};
+		3EDA846719EEB18C00231395 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				3EDA846819EEB1AF00231395 /* Category */,
+			);
+			name = Helpers;
+			path = YACorePlotBlog/Helpers;
+			sourceTree = "<group>";
+		};
+		3EDA846819EEB1AF00231395 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				3EDA846919EEB1AF00231395 /* UIColor+YAColorWithHexString.h */,
+				3EDA846A19EEB1AF00231395 /* UIColor+YAColorWithHexString.m */,
+			);
+			path = Category;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -375,10 +438,14 @@
 				3EDA845119EEA7AD00231395 /* YASet.m in Sources */,
 				3EDA844019EEA28F00231395 /* YAAppDelegate.m in Sources */,
 				3EDA844E19EEA78600231395 /* YAExercise.m in Sources */,
+				3EDA845C19EEAEB500231395 /* YAExercise+YABarChartProtocol.m in Sources */,
 				3EDA845419EEA89B00231395 /* YAExercise+YADefaultData.m in Sources */,
-				3EDA844119EEA28F00231395 /* YAViewController.m in Sources */,
+				3EDA846319EEAFDE00231395 /* YABarChartViewController.m in Sources */,
 				3E18983419EE9FE800804CCC /* main.m in Sources */,
+				3EDA846619EEB05700231395 /* YABarChartContainerViewController.m in Sources */,
 				3EDA844619EEA61300231395 /* YAModel.xcdatamodeld in Sources */,
+				3EDA846B19EEB1AF00231395 /* UIColor+YAColorWithHexString.m in Sources */,
+				3EDA845919EEAE6200231395 /* YABarChartView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
