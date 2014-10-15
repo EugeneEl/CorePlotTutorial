@@ -7,6 +7,7 @@
 //
 
 #import "YAViewController.h"
+#import "YAExercise.h"
 
 @interface YAViewController ()
 
@@ -17,6 +18,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    NSLog(@"%@", [YAExercise MR_findAll]);
 	// Do any additional setup after loading the view, typically from a nib.
 }
 

@@ -25,6 +25,7 @@
 		3EDA844819EEA71800231395 /* YAExercises.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3EDA844719EEA71800231395 /* YAExercises.plist */; };
 		3EDA844E19EEA78600231395 /* YAExercise.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EDA844D19EEA78600231395 /* YAExercise.m */; };
 		3EDA845119EEA7AD00231395 /* YASet.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EDA845019EEA7AD00231395 /* YASet.m */; };
+		3EDA845419EEA89B00231395 /* YAExercise+YADefaultData.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EDA845319EEA89B00231395 /* YAExercise+YADefaultData.m */; };
 		9DB9DD8CDF274C07B5CDC3E8 /* libPods-YACorePlotBlog.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DD830FEED37478FA9AC9EDC /* libPods-YACorePlotBlog.a */; };
 /* End PBXBuildFile section */
 
@@ -65,6 +66,8 @@
 		3EDA844D19EEA78600231395 /* YAExercise.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YAExercise.m; sourceTree = "<group>"; };
 		3EDA844F19EEA7AD00231395 /* YASet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YASet.h; path = YASet/YASet.h; sourceTree = "<group>"; };
 		3EDA845019EEA7AD00231395 /* YASet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YASet.m; path = YASet/YASet.m; sourceTree = "<group>"; };
+		3EDA845219EEA89B00231395 /* YAExercise+YADefaultData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "YAExercise+YADefaultData.h"; sourceTree = "<group>"; };
+		3EDA845319EEA89B00231395 /* YAExercise+YADefaultData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "YAExercise+YADefaultData.m"; sourceTree = "<group>"; };
 		6DD830FEED37478FA9AC9EDC /* libPods-YACorePlotBlog.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-YACorePlotBlog.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -96,6 +99,7 @@
 		3E18981B19EE9FE800804CCC = {
 			isa = PBXGroup;
 			children = (
+				3E18983919EE9FE800804CCC /* Main.storyboard */,
 				3EDA844319EEA29F00231395 /* Model */,
 				3EDA844219EEA29800231395 /* View */,
 				3EDA843B19EEA28F00231395 /* Controller */,
@@ -131,7 +135,6 @@
 		3E18982D19EE9FE800804CCC /* YACorePlotBlog */ = {
 			isa = PBXGroup;
 			children = (
-				3E18983919EE9FE800804CCC /* Main.storyboard */,
 				3E18983F19EE9FE800804CCC /* Images.xcassets */,
 				3E18982E19EE9FE800804CCC /* Supporting Files */,
 			);
@@ -229,6 +232,8 @@
 		3EDA844B19EEA77500231395 /* YAExerciseHelpers */ = {
 			isa = PBXGroup;
 			children = (
+				3EDA845219EEA89B00231395 /* YAExercise+YADefaultData.h */,
+				3EDA845319EEA89B00231395 /* YAExercise+YADefaultData.m */,
 			);
 			path = YAExerciseHelpers;
 			sourceTree = "<group>";
@@ -370,6 +375,7 @@
 				3EDA845119EEA7AD00231395 /* YASet.m in Sources */,
 				3EDA844019EEA28F00231395 /* YAAppDelegate.m in Sources */,
 				3EDA844E19EEA78600231395 /* YAExercise.m in Sources */,
+				3EDA845419EEA89B00231395 /* YAExercise+YADefaultData.m in Sources */,
 				3EDA844119EEA28F00231395 /* YAViewController.m in Sources */,
 				3E18983419EE9FE800804CCC /* main.m in Sources */,
 				3EDA844619EEA61300231395 /* YAModel.xcdatamodeld in Sources */,
@@ -409,6 +415,7 @@
 				3E18983A19EE9FE800804CCC /* Base */,
 			);
 			name = Main.storyboard;
+			path = YACorePlotBlog;
 			sourceTree = "<group>";
 		};
 		3E18984F19EE9FE800804CCC /* InfoPlist.strings */ = {
