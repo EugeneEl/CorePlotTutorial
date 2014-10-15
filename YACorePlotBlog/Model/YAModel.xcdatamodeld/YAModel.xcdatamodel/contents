@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6251" systemVersion="13F34" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="YAExercise" representedClassName="YAExercise" syncable="YES">
+        <attribute name="colorHexName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="sets" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="YASet" inverseName="exercise" inverseEntity="YASet" syncable="YES"/>
+        <userInfo>
+            <entry key="relatedByAttribute" value="name"/>
+        </userInfo>
+    </entity>
+    <entity name="YASet" representedClassName="YASet" syncable="YES">
+        <attribute name="doneAt" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="repCount" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <relationship name="exercise" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="YAExercise" inverseName="sets" inverseEntity="YAExercise" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="YAExercise" positionX="-218" positionY="-9" width="128" height="88"/>
+        <element name="YASet" positionX="-54" positionY="-9" width="128" height="88"/>
+    </elements>
+</model>

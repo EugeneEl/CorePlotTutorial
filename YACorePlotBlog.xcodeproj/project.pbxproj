@@ -21,6 +21,10 @@
 		3E18985319EE9FE800804CCC /* YACorePlotBlogTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E18985219EE9FE800804CCC /* YACorePlotBlogTests.m */; };
 		3EDA844019EEA28F00231395 /* YAAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EDA843D19EEA28F00231395 /* YAAppDelegate.m */; };
 		3EDA844119EEA28F00231395 /* YAViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EDA843F19EEA28F00231395 /* YAViewController.m */; };
+		3EDA844619EEA61300231395 /* YAModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3EDA844419EEA61300231395 /* YAModel.xcdatamodeld */; };
+		3EDA844819EEA71800231395 /* YAExercises.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3EDA844719EEA71800231395 /* YAExercises.plist */; };
+		3EDA844E19EEA78600231395 /* YAExercise.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EDA844D19EEA78600231395 /* YAExercise.m */; };
+		3EDA845119EEA7AD00231395 /* YASet.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EDA845019EEA7AD00231395 /* YASet.m */; };
 		9DB9DD8CDF274C07B5CDC3E8 /* libPods-YACorePlotBlog.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DD830FEED37478FA9AC9EDC /* libPods-YACorePlotBlog.a */; };
 /* End PBXBuildFile section */
 
@@ -55,6 +59,12 @@
 		3EDA843D19EEA28F00231395 /* YAAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YAAppDelegate.m; sourceTree = "<group>"; };
 		3EDA843E19EEA28F00231395 /* YAViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YAViewController.h; sourceTree = "<group>"; };
 		3EDA843F19EEA28F00231395 /* YAViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YAViewController.m; sourceTree = "<group>"; };
+		3EDA844519EEA61300231395 /* YAModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = YAModel.xcdatamodel; sourceTree = "<group>"; };
+		3EDA844719EEA71800231395 /* YAExercises.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = YAExercises.plist; sourceTree = "<group>"; };
+		3EDA844C19EEA78600231395 /* YAExercise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YAExercise.h; sourceTree = "<group>"; };
+		3EDA844D19EEA78600231395 /* YAExercise.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YAExercise.m; sourceTree = "<group>"; };
+		3EDA844F19EEA7AD00231395 /* YASet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YASet.h; path = YASet/YASet.h; sourceTree = "<group>"; };
+		3EDA845019EEA7AD00231395 /* YASet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YASet.m; path = YASet/YASet.m; sourceTree = "<group>"; };
 		6DD830FEED37478FA9AC9EDC /* libPods-YACorePlotBlog.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-YACorePlotBlog.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -161,6 +171,7 @@
 		3EDA843A19EEA28200231395 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				3EDA844719EEA71800231395 /* YAExercises.plist */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -188,9 +199,38 @@
 		3EDA844319EEA29F00231395 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				3EDA844419EEA61300231395 /* YAModel.xcdatamodeld */,
+				3EDA844A19EEA75000231395 /* YAExercise */,
+				3EDA844919EEA74900231395 /* YASet */,
+				3EDA844F19EEA7AD00231395 /* YASet.h */,
+				3EDA845019EEA7AD00231395 /* YASet.m */,
 			);
 			name = Model;
 			path = YACorePlotBlog/Model;
+			sourceTree = "<group>";
+		};
+		3EDA844919EEA74900231395 /* YASet */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = YASet;
+			sourceTree = "<group>";
+		};
+		3EDA844A19EEA75000231395 /* YAExercise */ = {
+			isa = PBXGroup;
+			children = (
+				3EDA844C19EEA78600231395 /* YAExercise.h */,
+				3EDA844D19EEA78600231395 /* YAExercise.m */,
+				3EDA844B19EEA77500231395 /* YAExerciseHelpers */,
+			);
+			path = YAExercise;
+			sourceTree = "<group>";
+		};
+		3EDA844B19EEA77500231395 /* YAExerciseHelpers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = YAExerciseHelpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -272,6 +312,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3EDA844819EEA71800231395 /* YAExercises.plist in Resources */,
 				3E18984019EE9FE800804CCC /* Images.xcassets in Resources */,
 				3E18983219EE9FE800804CCC /* InfoPlist.strings in Resources */,
 				3E18983B19EE9FE800804CCC /* Main.storyboard in Resources */,
@@ -326,9 +367,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3EDA845119EEA7AD00231395 /* YASet.m in Sources */,
 				3EDA844019EEA28F00231395 /* YAAppDelegate.m in Sources */,
+				3EDA844E19EEA78600231395 /* YAExercise.m in Sources */,
 				3EDA844119EEA28F00231395 /* YAViewController.m in Sources */,
 				3E18983419EE9FE800804CCC /* main.m in Sources */,
+				3EDA844619EEA61300231395 /* YAModel.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -547,6 +591,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		3EDA844419EEA61300231395 /* YAModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				3EDA844519EEA61300231395 /* YAModel.xcdatamodel */,
+			);
+			currentVersion = 3EDA844519EEA61300231395 /* YAModel.xcdatamodel */;
+			path = YAModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 3E18981C19EE9FE800804CCC /* Project object */;
 }
