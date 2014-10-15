@@ -1,0 +1,18 @@
+PODS:
+  - CorePlot (1.5.1)
+  - MagicalRecord (2.2):
+    - MagicalRecord/Core
+  - MagicalRecord/Core (2.2)
+  - Reveal-iOS-SDK (1.0.6)
+
+DEPENDENCIES:
+  - CorePlot (~> 1.5)
+  - MagicalRecord (~> 2.2)
+  - Reveal-iOS-SDK (~> 1.0)
+
+SPEC CHECKSUMS:
+  CorePlot: b15cb1a9a687b9576545104248d6e22033e678bb
+  MagicalRecord: 2b471584fc9e3137f3d0a56967917baa4979e224
+  Reveal-iOS-SDK: 74a39b426dbc915962704ed24f43ee32ae7797f9
+
+COCOAPODS: 0.33.1
