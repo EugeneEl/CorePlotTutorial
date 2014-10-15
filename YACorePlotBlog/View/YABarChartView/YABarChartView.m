@@ -39,6 +39,7 @@ static NSUInteger const kMultiplierToAdjustAxisYSize = 10;
 
 - (void)awakeFromNib {
     [self commonInit];
+    [self reloadData];
 }
 
 - (instancetype)initWithCoder:(NSCoder *)aDecoder {

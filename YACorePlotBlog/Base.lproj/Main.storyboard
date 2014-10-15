@@ -50,7 +50,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <connections>
-                            <outlet property="dataSource" destination="nKs-s9-pL1" id="Pb6-up-Lpa"/>
+                            <outlet property="dataSource" destination="nKs-s9-pL1" id="qcZ-0p-B8u"/>
                         </connections>
                     </view>
                     <toolbarItems/>
