@@ -80,7 +80,6 @@ static NSUInteger const kMultiplierToAdjustAxisYSize = 10;
     
     //setup axis
     CPTXYAxisSet *axisSet = (CPTXYAxisSet *)self.graph.axisSet;
-    
     //setup style for label for X axis
     CPTMutableTextStyle *textStyle = [CPTMutableTextStyle textStyle];
     textStyle.fontName = @"Arial";
@@ -91,6 +90,9 @@ static NSUInteger const kMultiplierToAdjustAxisYSize = 10;
     
     axisSet.xAxis.labelTextStyle = textStyle;
     axisSet.xAxis.labelOffset = kAxisXLabelOffset;
+    
+    [axisSet.xAxis setLabelingPolicy:CPTAxisLabelingPolicyAutomatic];
+    
     
     //set axes' line styles and interval ticks
     CPTMutableLineStyle *lineStyle = [CPTMutableLineStyle lineStyle];
