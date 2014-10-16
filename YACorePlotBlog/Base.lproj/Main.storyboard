@@ -54,6 +54,9 @@
                         </connections>
                     </view>
                     <toolbarItems/>
+                    <connections>
+                        <outlet property="view" destination="lqP-4Q-pKD" id="sua-mf-28U"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MGW-g3-qyG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

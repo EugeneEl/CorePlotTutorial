@@ -93,7 +93,6 @@ static NSUInteger const kMultiplierToAdjustAxisYSize = 10;
     
     [axisSet.xAxis setLabelingPolicy:CPTAxisLabelingPolicyAutomatic];
     
-    
     //set axes' line styles and interval ticks
     CPTMutableLineStyle *lineStyle = [CPTMutableLineStyle lineStyle];
     lineStyle.lineColor = [CPTColor colorWithCGColor:[UIColor grayColor].CGColor];
@@ -134,9 +133,6 @@ static NSUInteger const kMultiplierToAdjustAxisYSize = 10;
     borderLineStyle.lineColor = [CPTColor whiteColor];
     borderLineStyle.lineWidth = kBorderLineStyleWidth;
     plot.lineStyle = borderLineStyle;
-//    
-//    CPTMutableTextStyle *labeTextStyle = [CPTMutableTextStyle textStyle];
-//    [labeTextStyle setFontSize:10];
 
     //makes all Plot reload their data
     [self.graph addPlot:plot];

@@ -14,8 +14,9 @@
 //view
 #import "YABarChartView.h"
 
-@interface YABarChartViewController () <YABarChartViewDataSource>
+@interface YABarChartViewController () <YABarChartViewDataSource, NSFetchedResultsControllerDelegate>
 
+@property (nonatomic, weak) IBOutlet YABarChartView* view;
 @property (nonatomic, strong) NSFetchedResultsController *fetchedResultsController;
 
 @end
@@ -27,11 +28,11 @@
 - (id)initWithCoder:(NSCoder *)aDecoder {
     self = [super initWithCoder:aDecoder];
     if (self) {
-        _fetchedResultsController = [YAExercise MR_fetchAllSortedBy:nil
+        _fetchedResultsController = [YAExercise MR_fetchAllSortedBy:@"name"
                                                           ascending:NO
                                                       withPredicate:nil
                                                             groupBy:nil
-                                                           delegate:nil
+                                                           delegate:self
                                                           inContext:[NSManagedObjectContext MR_defaultContext]];
     }
     return self;
@@ -52,6 +53,11 @@
 
 - (id <YABarChartProtocol>)barChartView:(YABarChartView *)barChartView plotAtIndex:(NSInteger)index {
     return [self.fetchedResultsController.fetchedObjects objectAtIndex:index];
+}
+
+#pragma mark - NSFetchedResultsControllerDelegate
+- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
+    [self.view reloadData];
 }
 
 
