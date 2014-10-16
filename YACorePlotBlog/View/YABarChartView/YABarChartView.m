@@ -186,11 +186,7 @@ static NSUInteger const kMultiplierToAdjustAxisYSize = 10;
     self.defaultMinimalBarValue = ((maxWidth) * kMultiplierForMimimalBarValue);
 
     //recalculated interval for axis
-    if (maxWidth > 20.0f) {
-        float intervalLength = maxWidth / kNumberOfTicksAtXAxes;
-        axisSet.xAxis.majorIntervalLength = CPTDecimalFromFloat(ceilf(intervalLength));
-        
-    } else if (maxWidth == 0) {
+    if (maxWidth == 0) {
         axisSet.xAxis.majorGridLineStyle = nil;
     }
     
