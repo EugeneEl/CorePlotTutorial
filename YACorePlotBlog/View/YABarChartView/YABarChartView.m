@@ -10,9 +10,9 @@
 
 static CGFloat const kAreaPaddingTop = 0.0f;
 static CGFloat const kAreaPaddingRight = 10.0f;
-static CGFloat const kAreaPaddingLeft = 20.0f;
+static CGFloat const kAreaPaddingLeft = 80.0f;
 static CGFloat const kAreaPaddingBottom = 40.0f;
-static CGFloat const kAxisXLabelTextFontSize = 12.0f;
+static CGFloat const kAxisXLabelTextFontSize = 10.0f;
 static CGFloat const kAxisXLabelOffset = 0.0f;
 static CGFloat const kBarOffset = 5.0f;
 static CGFloat const kBarWidth = 5.0f;
@@ -132,7 +132,10 @@ static NSUInteger const kMultiplierToAdjustAxisYSize = 10;
     borderLineStyle.lineColor = [CPTColor whiteColor];
     borderLineStyle.lineWidth = kBorderLineStyleWidth;
     plot.lineStyle = borderLineStyle;
-    
+//    
+//    CPTMutableTextStyle *labeTextStyle = [CPTMutableTextStyle textStyle];
+//    [labeTextStyle setFontSize:10];
+
     //makes all Plot reload their data
     [self.graph addPlot:plot];
 }
@@ -144,6 +147,11 @@ static NSUInteger const kMultiplierToAdjustAxisYSize = 10;
     CPTXYPlotSpace *plotSpace = (CPTXYPlotSpace *)self.graph.defaultPlotSpace;
     
     NSInteger numberOfPlots = [self.dataSource numberOfChartsInBarChartView:self];
+    
+    CPTMutableTextStyle *textStyle = [CPTMutableTextStyle textStyle];
+    textStyle.fontName = @"Arial";
+    textStyle.fontSize = kAxisXLabelTextFontSize;
+    NSMutableArray *labelsArray = [NSMutableArray array];
     
     //calculated maxWidth  plot
     CGFloat maxWidth = 0.f;
@@ -159,7 +167,18 @@ static NSUInteger const kMultiplierToAdjustAxisYSize = 10;
     plotSpace.yRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromCGFloat(0.f)
                                                     length:CPTDecimalFromInteger((numberOfPlots)*kMultiplierToAdjustAxisYSize)];
     
+    for (int i = 0; i < numberOfPlots; i++) {
+        id <YABarChartProtocol> barProtocol = [self.dataSource barChartView:self plotAtIndex:i];
+        CPTAxisLabel *label = [[CPTAxisLabel alloc] initWithText:[barProtocol barName] textStyle:textStyle];
+        [label setTickLocation:CPTDecimalFromInt((i*kMultiplierToAdjustAxisYSize)+5)];
+        [labelsArray addObject:label];
+    }
+    
     CPTXYAxisSet *axisSet = (CPTXYAxisSet *)self.graph.axisSet;
+    
+    [axisSet.yAxis setLabelingPolicy: CPTAxisLabelingPolicyNone];
+    [axisSet.yAxis setAxisLabels:[NSSet setWithArray:labelsArray]];
+    
     
     //recalculated default minimalBarValue for to make all plots visible even if they depict small amouts of data
     self.defaultMinimalBarValue = ((maxWidth) * kMultiplierForMimimalBarValue);

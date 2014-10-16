@@ -14,5 +14,6 @@
 @required
 - (UIColor *)barColor;
 - (NSNumber *)barValue;
+- (NSString *)barName;
 
 @end

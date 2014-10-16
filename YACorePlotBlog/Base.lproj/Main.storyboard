@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fAo-6w-UJa" customClass="CPTGraphHostingView">
-                                <rect key="frame" x="16" y="50" width="288" height="318"/>
+                                <rect key="frame" x="0.0" y="50" width="320" height="318"/>
                                 <connections>
                                     <segue destination="nKs-s9-pL1" kind="embed" id="s2P-pR-KdO"/>
                                 </connections>
@@ -27,10 +27,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="fAo-6w-UJa" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="9xA-YF-82Z"/>
+                            <constraint firstItem="fAo-6w-UJa" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="9xA-YF-82Z"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="fAo-6w-UJa" secondAttribute="bottom" constant="200" id="dcC-kF-eVN"/>
                             <constraint firstItem="fAo-6w-UJa" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="30" id="u8t-ms-XqF"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="fAo-6w-UJa" secondAttribute="trailing" id="vnk-VU-EQI"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="fAo-6w-UJa" secondAttribute="trailing" constant="-16" id="vnk-VU-EQI"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -46,7 +46,7 @@
                         <viewControllerLayoutGuide type="bottom" id="cLP-Wp-6IU"/>
                     </layoutGuides>
                     <view key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="lqP-4Q-pKD" customClass="YABarChartView">
-                        <rect key="frame" x="0.0" y="0.0" width="288" height="318"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="318"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <connections>

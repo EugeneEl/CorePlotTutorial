@@ -21,5 +21,9 @@
     return [self.sets valueForKeyPath:@"@sum.repCount"];
 }
 
+- (NSString *)barName {
+    return self.name;
+}
+
 
 @end
