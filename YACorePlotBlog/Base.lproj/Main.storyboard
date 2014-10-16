@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6249" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6249" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="hWb-uL-kh7">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6243"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Pie-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
                 <viewController id="vXZ-lx-hvc" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
@@ -18,8 +19,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fAo-6w-UJa" customClass="CPTGraphHostingView">
-                                <rect key="frame" x="0.0" y="50" width="320" height="318"/>
+                            <containerView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fAo-6w-UJa" customClass="CPTGraphHostingView">
+                                <rect key="frame" x="16" y="50" width="288" height="318"/>
                                 <connections>
                                     <segue destination="nKs-s9-pL1" kind="embed" id="s2P-pR-KdO"/>
                                 </connections>
@@ -27,15 +28,16 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="fAo-6w-UJa" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="9xA-YF-82Z"/>
+                            <constraint firstItem="fAo-6w-UJa" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="9xA-YF-82Z"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="fAo-6w-UJa" secondAttribute="bottom" constant="200" id="dcC-kF-eVN"/>
                             <constraint firstItem="fAo-6w-UJa" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="30" id="u8t-ms-XqF"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="fAo-6w-UJa" secondAttribute="trailing" constant="-16" id="vnk-VU-EQI"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="fAo-6w-UJa" secondAttribute="trailing" id="vnk-VU-EQI"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Pie" id="u4U-pM-MtH"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="35" y="116"/>
         </scene>
         <!--Bar Chart View Controller-->
         <scene sceneID="XYz-ct-9np">
@@ -46,7 +48,7 @@
                         <viewControllerLayoutGuide type="bottom" id="cLP-Wp-6IU"/>
                     </layoutGuides>
                     <view key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="lqP-4Q-pKD" customClass="YABarChartView">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="318"/>
+                        <rect key="frame" x="0.0" y="0.0" width="288" height="318"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <connections>
@@ -60,7 +62,65 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MGW-g3-qyG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="477" y="11"/>
+            <point key="canvasLocation" x="513" y="-9"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="vxS-Xl-zT5">
+            <objects>
+                <viewController id="hWb-uL-kh7" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="sh4-n8-Cxj"/>
+                        <viewControllerLayoutGuide type="bottom" id="Bbb-zT-cWO"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="1OW-jr-QYH">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gW4-hg-5xp" customClass="CPTGraphHostingView">
+                                <rect key="frame" x="16" y="30" width="288" height="338"/>
+                                <connections>
+                                    <segue destination="OEV-SE-Yck" kind="embed" id="ITf-Ul-0bo"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="gW4-hg-5xp" secondAttribute="trailing" id="7Nz-Ae-d9S"/>
+                            <constraint firstItem="gW4-hg-5xp" firstAttribute="top" secondItem="1OW-jr-QYH" secondAttribute="topMargin" constant="30" id="CoH-AC-0KN"/>
+                            <constraint firstItem="gW4-hg-5xp" firstAttribute="leading" secondItem="1OW-jr-QYH" secondAttribute="leadingMargin" id="WCl-f5-OxA"/>
+                            <constraint firstItem="Bbb-zT-cWO" firstAttribute="top" secondItem="gW4-hg-5xp" secondAttribute="bottom" constant="200" id="nNn-4F-9jm"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CHb-tb-6hG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1183" y="87"/>
+        </scene>
+        <!--Bar-->
+        <scene sceneID="n3i-Ac-DzM">
+            <objects>
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="OEV-SE-Yck" customClass="YAPieChartViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="MY9-78-mQD"/>
+                        <viewControllerLayoutGuide type="bottom" id="0Z1-s4-pLA"/>
+                    </layoutGuides>
+                    <view key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="zbf-2y-GtM" customClass="YAPieChartView">
+                        <rect key="frame" x="0.0" y="0.0" width="288" height="338"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <connections>
+                            <outlet property="dataSource" destination="OEV-SE-Yck" id="91y-ea-2XI"/>
+                        </connections>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Bar" id="YdV-H3-9zw"/>
+                    <toolbarItems/>
+                    <connections>
+                        <outlet property="view" destination="zbf-2y-GtM" id="FzX-FN-vMT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MHw-7R-jjs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1560" y="-19"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
