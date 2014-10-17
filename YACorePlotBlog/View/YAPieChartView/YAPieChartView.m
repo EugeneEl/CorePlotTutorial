@@ -92,19 +92,28 @@ static CGFloat const kMinimalDegreesToDisplay = 3.f;
     lineStyle.lineColor = [CPTColor whiteColor];
     lineStyle.lineWidth = kPieBorderWidth;
     piePlot.borderLineStyle = lineStyle;
+    
+    
     [self.graph addPlot:piePlot];
 }
 
+#pragma mark - Public
+
 - (void)reloadData {
+    
+    //calculating total amout of data which we need to display on chart
     CGFloat totalAmount = 0.f;
     NSUInteger numberOfCharts = [_dataSource numberOfChartsInPieChartView:self];
     for (int i = 0; i < numberOfCharts; i ++) {
         totalAmount += [[[_dataSource pieChartView:self plotAtIndex:i] pieAmountForSectorSize] doubleValue];
     }
+    
+    //calculating amount of data for 1 degree and muliplie it by number of minimal degrees to display
     self.degreeAmount= (totalAmount / 360.f) * kMinimalDegreesToDisplay;
     [self.graph reloadData];
 }
 
+//implementing methods of Core Plot dataSource and delegate
 #pragma mark - CPTPieChartDataSource
 
 - (NSUInteger)numberOfRecordsForPlot:(CPTPlot *)plot {
