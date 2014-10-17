@@ -22,6 +22,7 @@ static CGFloat const kMinimalDegreesToDisplay = 3.f;
 
 @property (nonatomic, strong) CPTXYGraph *graph;
 @property (nonatomic, assign) CGFloat degreeAmount;
+@property (nonatomic, assign) CGFloat totalAmount;
 
 @end
 
@@ -91,10 +92,12 @@ static CGFloat const kMinimalDegreesToDisplay = 3.f;
 - (void)reloadData {
     
     //calculating total amout of data which we need to display on chart
-    CGFloat totalAmount = 0.f;
+    self.totalAmount = 0.f;
     NSUInteger numberOfCharts = [_dataSource numberOfChartsInPieChartView:self];
     for (int i = 0; i < numberOfCharts; i ++) {
-        totalAmount += [[[_dataSource pieChartView:self plotAtIndex:i] pieAmountForSectorSize] doubleValue];
+        self.totalAmount += [[[_dataSource pieChartView:self plotAtIndex:i] pieAmountForSectorSize] integerValue];
+    NSLog(@"sector:%d",[[[_dataSource pieChartView:self plotAtIndex:i] pieAmountForSectorSize] integerValue]);
+    
     }
     
     // Remove previous plots
@@ -119,20 +122,18 @@ static CGFloat const kMinimalDegreesToDisplay = 3.f;
     
         [self.graph addPlot:piePlot];
 
-    // 4 - Add legend to graph
+    //Add legend to graph
     CPTLegend *theLegend = [CPTLegend legendWithGraph:self.graph];
-    // 3 - Configure legend
     theLegend.numberOfColumns = 2;
     theLegend.fill = [CPTFill fillWithColor:[CPTColor whiteColor]];
     theLegend.borderLineStyle = [CPTLineStyle lineStyle];
     theLegend.cornerRadius = 5.0;
-    //CGFloat legendPadding = -(self.bounds.size.width / 8);
-    //self.graph.legendDisplacement = CGPointMake(legendPadding, 0.0);
-    
     self.graph.legend = theLegend;
     
     //calculating amount of data for 1 degree and muliplie it by number of minimal degrees to display
-    self.degreeAmount= (totalAmount / 360.f) * kMinimalDegreesToDisplay;
+    self.degreeAmount= (self.totalAmount / 360.f) * kMinimalDegreesToDisplay;
+    
+    NSLog(@"totalAmount:%f",self.totalAmount);
     [self.graph reloadData];
 }
 
@@ -145,7 +146,7 @@ static CGFloat const kMinimalDegreesToDisplay = 3.f;
 
 - (NSNumber *)numberForPlot:(CPTPlot *)plot field:(NSUInteger)fieldEnum recordIndex:(NSUInteger)index {
     id <YAPieChartProtocol> pieProtocol = [self.dataSource pieChartView:self plotAtIndex:index];
-    if ([[pieProtocol pieAmountForSectorSize] doubleValue] < self.degreeAmount) {
+    if ([[pieProtocol pieAmountForSectorSize] integerValue] < self.degreeAmount) {
         return @(self.degreeAmount);
     }
     return [pieProtocol pieAmountForSectorSize];
@@ -160,12 +161,9 @@ static CGFloat const kMinimalDegreesToDisplay = 3.f;
         labelText.color = [CPTColor grayColor];
     }
     
-    // 2 - Calculate portfolio total value
-
-    // 4 - Set up display label
-    NSString *labelValue = [NSString stringWithFormat:@"%f", [[pieProtocol pieAmountForSectorSize] doubleValue] ];
-    // 5 - Create and return layer with label text
-    return [[CPTTextLayer alloc] initWithText:labelValue style:labelText];
+    double percentage = (100.f * [[pieProtocol pieAmountForSectorSize] integerValue]) / self.totalAmount;
+    NSString *labelString = [NSString stringWithFormat:@"%ld (%.2f%%)", (long)[[pieProtocol pieAmountForSectorSize] integerValue], percentage];
+    return [[CPTTextLayer alloc] initWithText:labelString style:labelText];
 }
 
 #pragma mark - CPTPieChartDelegate
@@ -177,12 +175,9 @@ static CGFloat const kMinimalDegreesToDisplay = 3.f;
 }
 
 - (NSString *)legendTitleForPieChart:(CPTPieChart *)pieChart recordIndex:(NSUInteger)idx {
-    id <YAPieChartProtocol> pieProtocol = [self.dataSource pieChartView:self plotAtIndex:idx];
+    id <YAPieChartProtocol> pieProtocol = [self.dataSource  pieChartView:self plotAtIndex:idx];
     return [pieProtocol pieName];
 }
-
-
-
 
 #pragma mark - Properties
 
@@ -217,7 +212,5 @@ static CGFloat const kMinimalDegreesToDisplay = 3.f;
         [self reloadData];
     }
 }
-
-
 
 @end

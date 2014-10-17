@@ -11,7 +11,7 @@
 static CGFloat const kAreaPaddingTop = 0.0f;
 static CGFloat const kAreaPaddingRight = 10.0f;
 static CGFloat const kAreaPaddingLeft = 80.0f;
-static CGFloat const kAreaPaddingBottom = 40.0f;
+static CGFloat const kAreaPaddingBottom = 120.0f;
 static CGFloat const kAxisXLabelTextFontSize = 10.0f;
 static CGFloat const kAxisXLabelOffset = 0.0f;
 static CGFloat const kBarOffset = 5.0f;
@@ -30,6 +30,7 @@ static NSUInteger const kMultiplierToAdjustAxisYSize = 10;
 
 @property (nonatomic, strong) CPTXYGraph *graph;
 @property (nonatomic, assign) CGFloat defaultMinimalBarValue;
+@property (nonatomic, assign) CGFloat toalValue;
 
 @end
 
@@ -131,21 +132,21 @@ static NSUInteger const kMultiplierToAdjustAxisYSize = 10;
     
     NSInteger numberOfPlots = [self.dataSource numberOfChartsInBarChartView:self];
     
-    for (int i = 0; i < numberOfPlots; i++) {
-        CPTBarPlot *plot = [[CPTBarPlot alloc] init];
-        plot.dataSource = self;
-        plot.delegate = self;
-        [plot setBarsAreHorizontal:YES];
-        plot.barWidth = [[NSDecimalNumber numberWithFloat:_barWidth] decimalValue];
-        plot.barOffset = [[NSDecimalNumber numberWithFloat:_distanceBetweenBars] decimalValue];
-        [plot setBarsAreHorizontal:YES];
-        // Remove bar outlines
-        CPTMutableLineStyle *borderLineStyle = [CPTMutableLineStyle lineStyle];
-        borderLineStyle.lineColor = [CPTColor whiteColor];
-        borderLineStyle.lineWidth = kBorderLineStyleWidth;
-        plot.lineStyle = borderLineStyle;
-        [self.graph addPlot:plot];
-    }
+    
+    CPTBarPlot *plot = [[CPTBarPlot alloc] init];
+    plot.dataSource = self;
+    plot.delegate = self;
+    [plot setBarsAreHorizontal:YES];
+    plot.barWidth = [[NSDecimalNumber numberWithFloat:_barWidth] decimalValue];
+    plot.barOffset = [[NSDecimalNumber numberWithFloat:_distanceBetweenBars] decimalValue];
+    [plot setBarsAreHorizontal:YES];
+    
+    // Remove bar outlines
+    CPTMutableLineStyle *borderLineStyle = [CPTMutableLineStyle lineStyle];
+    borderLineStyle.lineColor = [CPTColor whiteColor];
+    borderLineStyle.lineWidth = kBorderLineStyleWidth;
+    plot.lineStyle = borderLineStyle;
+    [self.graph addPlot:plot];
     
     CPTMutableTextStyle *textStyle = [CPTMutableTextStyle textStyle];
     textStyle.fontName = @"Arial";
@@ -153,16 +154,18 @@ static NSUInteger const kMultiplierToAdjustAxisYSize = 10;
     NSMutableArray *labelsArray = [NSMutableArray array];
     
     //calculated maxWidth  plot
-    CGFloat maxWidth = 0.f;
+    CGFloat maxValue = 0.f;
+    self.toalValue = 0.f;
     for (int i = 0; i < numberOfPlots; i++) {
         id <YABarChartProtocol> barProtocol = [self.dataSource barChartView:self plotAtIndex:i];
-        maxWidth = fmaxf(maxWidth, [[barProtocol barValue] floatValue]);
+        maxValue = fmaxf(maxValue, [[barProtocol barValue] integerValue]);
+        self.toalValue += [[barProtocol barValue] integerValue];
     }
     
     //recalculated plotSpace for X axe with maxWidth
     //recalculated plotSpace for Y axe with number of plots multipled by some constant
     plotSpace.xRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromCGFloat(0.f)
-                                                    length:CPTDecimalFromCGFloat(maxWidth+1.f)];
+                                                    length:CPTDecimalFromCGFloat(maxValue+1.f)];
     plotSpace.yRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromCGFloat(0.f)
                                                     length:CPTDecimalFromInteger((numberOfPlots)*kMultiplierToAdjustAxisYSize)];
     
@@ -173,6 +176,19 @@ static NSUInteger const kMultiplierToAdjustAxisYSize = 10;
         [labelsArray addObject:label];
     }
     
+    //Add legend to graph
+    CPTLegend *theLegend = [CPTLegend legendWithGraph:self.graph];
+    theLegend.numberOfColumns = 1;
+    theLegend.fill = [CPTFill fillWithColor:[CPTColor whiteColor]];
+    theLegend.borderLineStyle = [CPTLineStyle lineStyle];
+    theLegend.cornerRadius = 5.0;
+    
+    //TODO: refactor this part, please
+    CGFloat legendPadding = -(self.bounds.size.width / 8);
+    self.graph.legendDisplacement = CGPointMake(legendPadding + 55, 0.0);
+    self.graph.legend = theLegend;
+
+    
     CPTXYAxisSet *axisSet = (CPTXYAxisSet *)self.graph.axisSet;
     
     [axisSet.yAxis setLabelingPolicy: CPTAxisLabelingPolicyNone];
@@ -180,12 +196,14 @@ static NSUInteger const kMultiplierToAdjustAxisYSize = 10;
     
     
     //recalculated default minimalBarValue for to make all plots visible even if they depict small amouts of data
-    self.defaultMinimalBarValue = ((maxWidth) * kMultiplierForMimimalBarValue);
+    self.defaultMinimalBarValue = ((maxValue) * kMultiplierForMimimalBarValue);
 
     //recalculated interval for axis
-    if (maxWidth == 0) {
+    if (maxValue == 0) {
         axisSet.xAxis.majorGridLineStyle = nil;
     }
+    
+    NSLog(@"maxValue:%f",maxValue);
     
     //makes all Plot reload their data
     [self.graph reloadData];
@@ -228,7 +246,11 @@ static NSUInteger const kMultiplierToAdjustAxisYSize = 10;
 
 - (NSString *)legendTitleForBarPlot:(CPTBarPlot *)barPlot recordIndex:(NSUInteger)idx {
     id <YABarChartProtocol> barProtocol = [self.dataSource barChartView:self plotAtIndex:idx];
-    return [barPlot name];
+    
+    double percentage = (100.f * [[barProtocol barValue] integerValue]) / self.toalValue;
+    NSString *legendLabelString = [NSString stringWithFormat:@"%@ %ld (%.2f%%)", [barProtocol barName], (long)[[barProtocol barValue] integerValue], percentage];
+    
+    return legendLabelString;
 }
 
 #pragma mark - Properties
