@@ -61,6 +61,7 @@ static CGFloat const kMinimalDegreesToDisplay = 3.f;
     [self.graph setValue:@(0.f) forKey:@"paddingRight"];
     [self.graph setValue:@(0.f) forKey:@"paddingBottom"];
     
+    
     //set graph padding and theme
     self.graph.plotAreaFrame.paddingTop = kAreaPaddingTop;
     self.graph.plotAreaFrame.paddingRight = kAreaPaddingRight;
@@ -96,10 +97,16 @@ static CGFloat const kMinimalDegreesToDisplay = 3.f;
         totalAmount += [[[_dataSource pieChartView:self plotAtIndex:i] pieAmountForSectorSize] doubleValue];
     }
     
-    for (int i = 0; i < numberOfCharts; i++) {
+    // Remove previous plots
+    [[self.graph allPlots] enumerateObjectsUsingBlock:^(CPTPlot *plot, NSUInteger idx, BOOL *stop) {
+        [self.graph removePlot:plot];
+    }];
+    
+
         // Add pie chart
         CPTPieChart *piePlot = [[CPTPieChart alloc] init];
-        piePlot.dataSource      = self;
+        piePlot.dataSource = self;
+        piePlot.delegate = self;
         piePlot.pieRadius = _pieRadius;
         piePlot.pieInnerRadius = _pieInnerCornerRadius;
         piePlot.identifier      = @"Pie Chart 1";
@@ -109,9 +116,20 @@ static CGFloat const kMinimalDegreesToDisplay = 3.f;
         lineStyle.lineColor = [CPTColor whiteColor];
         lineStyle.lineWidth = _borderLineWidth;
         piePlot.borderLineStyle = lineStyle;
-        
+    
         [self.graph addPlot:piePlot];
-    }
+
+    // 4 - Add legend to graph
+    CPTLegend *theLegend = [CPTLegend legendWithGraph:self.graph];
+    // 3 - Configure legend
+    theLegend.numberOfColumns = 2;
+    theLegend.fill = [CPTFill fillWithColor:[CPTColor whiteColor]];
+    theLegend.borderLineStyle = [CPTLineStyle lineStyle];
+    theLegend.cornerRadius = 5.0;
+    //CGFloat legendPadding = -(self.bounds.size.width / 8);
+    //self.graph.legendDisplacement = CGPointMake(legendPadding, 0.0);
+    
+    self.graph.legend = theLegend;
     
     //calculating amount of data for 1 degree and muliplie it by number of minimal degrees to display
     self.degreeAmount= (totalAmount / 360.f) * kMinimalDegreesToDisplay;
@@ -122,7 +140,7 @@ static CGFloat const kMinimalDegreesToDisplay = 3.f;
 #pragma mark - CPTPieChartDataSource
 
 - (NSUInteger)numberOfRecordsForPlot:(CPTPlot *)plot {
-    return [self.dataSource numberOfChartsInPieChartView:self];
+   return [self.dataSource numberOfChartsInPieChartView:self];
 }
 
 - (NSNumber *)numberForPlot:(CPTPlot *)plot field:(NSUInteger)fieldEnum recordIndex:(NSUInteger)index {
@@ -133,13 +151,38 @@ static CGFloat const kMinimalDegreesToDisplay = 3.f;
     return [pieProtocol pieAmountForSectorSize];
 }
 
+- (CPTLayer *)dataLabelForPlot:(CPTPlot *)plot recordIndex:(NSUInteger)idx {
+    
+    id <YAPieChartProtocol> pieProtocol = [self.dataSource pieChartView:self plotAtIndex:idx];
+    static CPTMutableTextStyle *labelText = nil;
+    if (!labelText) {
+        labelText= [[CPTMutableTextStyle alloc] init];
+        labelText.color = [CPTColor grayColor];
+    }
+    
+    // 2 - Calculate portfolio total value
+
+    // 4 - Set up display label
+    NSString *labelValue = [NSString stringWithFormat:@"%f", [[pieProtocol pieAmountForSectorSize] doubleValue] ];
+    // 5 - Create and return layer with label text
+    return [[CPTTextLayer alloc] initWithText:labelValue style:labelText];
+}
+
 #pragma mark - CPTPieChartDelegate
 
 //color for pies
 - (CPTFill *)sliceFillForPieChart:(CPTPieChart *)pieChart recordIndex:(NSUInteger)index {
-    id <YAPieChartProtocol> barProtocol = [self.dataSource pieChartView:self plotAtIndex:index];
-    return [CPTFill fillWithColor:[CPTColor colorWithCGColor:[[barProtocol pieColor] CGColor]]];
+    id <YAPieChartProtocol> pieProtocol = [self.dataSource pieChartView:self plotAtIndex:index];
+    return [CPTFill fillWithColor:[CPTColor colorWithCGColor:[[pieProtocol pieColor] CGColor]]];
 }
+
+- (NSString *)legendTitleForPieChart:(CPTPieChart *)pieChart recordIndex:(NSUInteger)idx {
+    id <YAPieChartProtocol> pieProtocol = [self.dataSource pieChartView:self plotAtIndex:idx];
+    return [pieProtocol pieName];
+}
+
+
+
 
 #pragma mark - Properties
 
@@ -174,5 +217,7 @@ static CGFloat const kMinimalDegreesToDisplay = 3.f;
         [self reloadData];
     }
 }
+
+
 
 @end

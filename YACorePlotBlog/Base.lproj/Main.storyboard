@@ -44,59 +44,11 @@
                                     <segue destination="nKs-s9-pL1" kind="embed" id="s2P-pR-KdO"/>
                                 </connections>
                             </containerView>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Lw8-Dh-dmO">
-                                <rect key="frame" x="16" y="382" width="288" height="127"/>
-                                <color key="backgroundColor" red="0.94509803920000002" green="0.52156862749999999" blue="0.51372549020000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="szn-59-xLz">
-                                    <size key="itemSize" width="250" height="50"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="MHm-ae-a5u">
-                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="250" height="50"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="caX-Pr-IiP">
-                                                    <rect key="frame" x="65" y="14" width="185" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Vv-5C-mjv">
-                                                    <rect key="frame" x="12" y="8" width="45" height="34"/>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                </view>
-                                            </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="caX-Pr-IiP" secondAttribute="trailing" id="2BM-Hp-8JS"/>
-                                            <constraint firstAttribute="trailing" secondItem="1Vv-5C-mjv" secondAttribute="trailing" constant="193" id="9Wm-3X-fl6"/>
-                                            <constraint firstItem="1Vv-5C-mjv" firstAttribute="leading" secondItem="MHm-ae-a5u" secondAttribute="leadingMargin" constant="4" id="CnT-jb-KEZ"/>
-                                            <constraint firstItem="caX-Pr-IiP" firstAttribute="leading" secondItem="1Vv-5C-mjv" secondAttribute="trailing" constant="8" symbolic="YES" id="N0n-bD-y8m"/>
-                                            <constraint firstItem="1Vv-5C-mjv" firstAttribute="bottom" secondItem="MHm-ae-a5u" secondAttribute="bottomMargin" id="YNX-q3-2Bi"/>
-                                            <constraint firstItem="caX-Pr-IiP" firstAttribute="top" secondItem="MHm-ae-a5u" secondAttribute="top" constant="14" id="jX8-3Z-P9V"/>
-                                            <constraint firstItem="1Vv-5C-mjv" firstAttribute="top" secondItem="MHm-ae-a5u" secondAttribute="topMargin" id="kMf-l3-PM2"/>
-                                            <constraint firstAttribute="bottom" secondItem="caX-Pr-IiP" secondAttribute="bottom" constant="15" id="uqr-uQ-Ykt"/>
-                                        </constraints>
-                                    </collectionViewCell>
-                                </cells>
-                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="fAo-6w-UJa" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="9xA-YF-82Z"/>
-                            <constraint firstItem="Lw8-Dh-dmO" firstAttribute="top" secondItem="fAo-6w-UJa" secondAttribute="bottom" constant="14" id="NOd-No-AEL"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="fAo-6w-UJa" secondAttribute="bottom" constant="151" id="dcC-kF-eVN"/>
-                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="Lw8-Dh-dmO" secondAttribute="bottom" constant="10" id="evI-za-BLp"/>
-                            <constraint firstAttribute="trailing" secondItem="Lw8-Dh-dmO" secondAttribute="trailing" constant="16" id="eyo-MD-a73"/>
-                            <constraint firstItem="Lw8-Dh-dmO" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="16" id="jvA-tJ-Anb"/>
                             <constraint firstItem="fAo-6w-UJa" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="30" id="u8t-ms-XqF"/>
                             <constraint firstAttribute="trailingMargin" secondItem="fAo-6w-UJa" secondAttribute="trailing" id="vnk-VU-EQI"/>
                         </constraints>
@@ -145,8 +97,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <containerView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="d7o-4i-HBp" customClass="CPTGraphHostingView">
-                                <rect key="frame" x="16" y="30" width="288" height="338"/>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d7o-4i-HBp" customClass="CPTGraphHostingView">
+                                <rect key="frame" x="16" y="30" width="288" height="289"/>
                                 <connections>
                                     <segue destination="G57-uY-Mt1" kind="embed" id="h3R-bZ-0F0"/>
                                 </connections>
@@ -178,8 +130,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <containerView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gW4-hg-5xp" customClass="CPTGraphHostingView">
-                                <rect key="frame" x="16" y="30" width="288" height="338"/>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gW4-hg-5xp" customClass="CPTGraphHostingView">
+                                <rect key="frame" x="16" y="30" width="288" height="397"/>
                                 <connections>
                                     <segue destination="OEV-SE-Yck" kind="embed" id="ITf-Ul-0bo"/>
                                 </connections>
@@ -188,9 +140,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="gW4-hg-5xp" secondAttribute="trailing" id="7Nz-Ae-d9S"/>
+                            <constraint firstItem="Bbb-zT-cWO" firstAttribute="top" secondItem="gW4-hg-5xp" secondAttribute="bottom" constant="92" id="7U4-kW-Jhh"/>
                             <constraint firstItem="gW4-hg-5xp" firstAttribute="top" secondItem="1OW-jr-QYH" secondAttribute="topMargin" constant="30" id="CoH-AC-0KN"/>
                             <constraint firstItem="gW4-hg-5xp" firstAttribute="leading" secondItem="1OW-jr-QYH" secondAttribute="leadingMargin" id="WCl-f5-OxA"/>
-                            <constraint firstItem="Bbb-zT-cWO" firstAttribute="top" secondItem="gW4-hg-5xp" secondAttribute="bottom" constant="200" id="nNn-4F-9jm"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Pie Chart" id="Sci-pE-b3b"/>
@@ -208,7 +160,7 @@
                         <viewControllerLayoutGuide type="bottom" id="0Z1-s4-pLA"/>
                     </layoutGuides>
                     <view key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="zbf-2y-GtM" customClass="YAPieChartView">
-                        <rect key="frame" x="0.0" y="0.0" width="288" height="338"/>
+                        <rect key="frame" x="0.0" y="0.0" width="288" height="397"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <connections>
@@ -234,7 +186,7 @@
                         <viewControllerLayoutGuide type="bottom" id="MFa-dO-chN"/>
                     </layoutGuides>
                     <view key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="rF0-Qz-Ky7" customClass="YAStackedBarChartView">
-                        <rect key="frame" x="0.0" y="0.0" width="288" height="338"/>
+                        <rect key="frame" x="0.0" y="0.0" width="288" height="289"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>

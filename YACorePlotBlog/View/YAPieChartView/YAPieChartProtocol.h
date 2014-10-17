@@ -14,5 +14,6 @@
 
 - (UIColor *)pieColor;
 - (NSNumber *)pieAmountForSectorSize;
+- (NSString *)pieName;
 
 @end

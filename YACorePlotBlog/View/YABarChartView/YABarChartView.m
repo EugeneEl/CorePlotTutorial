@@ -226,6 +226,11 @@ static NSUInteger const kMultiplierToAdjustAxisYSize = 10;
     return [CPTFill fillWithColor:[CPTColor colorWithCGColor:[[barProtocol barColor] CGColor]]];
 }
 
+- (NSString *)legendTitleForBarPlot:(CPTBarPlot *)barPlot recordIndex:(NSUInteger)idx {
+    id <YABarChartProtocol> barProtocol = [self.dataSource barChartView:self plotAtIndex:idx];
+    return [barPlot name];
+}
+
 #pragma mark - Properties
 
 - (void)setDataSource:(id<YABarChartViewDataSource>)dataSource {

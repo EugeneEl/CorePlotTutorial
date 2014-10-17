@@ -20,4 +20,9 @@
 - (NSNumber *)pieAmountForSectorSize {
     return [self.sets valueForKeyPath:@"@sum.repCount"];
 }
+
+- (NSString *)pieName {
+    return self.name;
+}
+
 @end
