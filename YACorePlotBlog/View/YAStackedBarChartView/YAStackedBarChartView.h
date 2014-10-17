@@ -27,4 +27,9 @@
 
 @property (nonatomic, weak) IBOutlet id <YAStackedBarChartViewDataSource> dataSource;
 
+@property (nonatomic, assign) CGFloat sectionWidth;
+@property (nonatomic, assign) CGFloat distanceBetweenBars;
+@property (nonatomic, assign) CGFloat offsetFromLeft;
+@property (nonatomic, assign) CGFloat offsetFromRight;
+
 @end

@@ -99,16 +99,6 @@ static CGFloat const kMultiplierForMimimalBarValue = 0.03f;
     y.labelFormatter = formatter;
 }
 
-#pragma mark - Properties
-
-- (void)setDataSource:(id<YAStackedBarChartViewDataSource>)dataSource {
-    if (![_dataSource isEqual:dataSource]) {
-        _dataSource = dataSource;
-        
-        [self reloadData];
-    }
-}
-
 #pragma mark - Public
 
 - (void)reloadData {
@@ -132,16 +122,25 @@ static CGFloat const kMultiplierForMimimalBarValue = 0.03f;
             borderLineStyle.lineColor = [CPTColor whiteColor];
             borderLineStyle.lineWidth = [@0.5 floatValue];
             plot.lineStyle = borderLineStyle;
-            plot.barWidth = [@22 decimalValue];
+            plot.barWidth = CPTDecimalFromCGFloat(self.sectionWidth);
             plot.dataSource = self;
+            
+            //if current plot is first in section - barBasesVary = NO
+            //If NO, a constant base value is used for all bars. If YES, the data source is queried to supply a base value for each bar.
+            //The coordinate value of the fixed end of the bars.
             plot.barBasesVary = index == 0 ? NO : YES;
             plot.barCornerRadius = [@0 floatValue];
+            
+            //provide our plot with identifier - for this we made all staff with sections and objects
+            //we can work with each plot as with row in table view, but placed into section.
             plot.identifier = [NSIndexPath indexPathForRow:row inSection:section];
             [self.graph addPlot:plot toPlotSpace:plotSpace];
         }
     }
     
     // Calculate XY ranges
+    
+    //calculating real data - real height
     CGFloat maxHeight = 0.f;
     for (NSInteger section = 0; section < numberOfSection; section++) {
         NSInteger numberOfRows = [self.dataSource stackedBarChartView:self numberOfRowsInSection:section];
@@ -157,18 +156,21 @@ static CGFloat const kMultiplierForMimimalBarValue = 0.03f;
     
     // TODO: Refactor dual loops
     maxHeight = 0.f;
+    
     for (NSInteger section = 0; section < numberOfSection; section++) {
         NSInteger numberOfRows = [self.dataSource stackedBarChartView:self numberOfRowsInSection:section];
         CGFloat sectionHeight = 0.f;
         for (NSInteger row = 0; row < numberOfRows; row++) {
             NSIndexPath *indexPath = [NSIndexPath indexPathForRow:row inSection:section];
+            
+            //
             sectionHeight += [self heightForRowAtIndexPath:indexPath];
         }
         maxHeight = fmaxf(maxHeight, sectionHeight);
     }
     
     plotSpace.yRange = [CPTPlotRange plotRangeWithLocation:[@0 decimalValue] length:[@(maxHeight+5.f) decimalValue]];
-    plotSpace.xRange = [CPTPlotRange plotRangeWithLocation:[@0 decimalValue] length:[@242 decimalValue]];
+    plotSpace.xRange = [CPTPlotRange plotRangeWithLocation:[@0 decimalValue] length:[@(242) decimalValue]];
     
     CPTXYAxisSet *axisSet = (CPTXYAxisSet *)self.graph.axisSet;
     if (maxHeight > 12.0f) {
@@ -193,7 +195,7 @@ static CGFloat const kMultiplierForMimimalBarValue = 0.03f;
     
     // X Value
     if (fieldEnum == CPTBarPlotFieldBarLocation) {
-        return @(((indexPath.section) * (22+13) + (22/2)) + 5);
+        return @(((indexPath.section) * (self.sectionWidth+self.distanceBetweenBars) + (self.sectionWidth/2)) + self.offsetFromLeft);
         
         // Y Value
     } else if (fieldEnum == CPTBarPlotFieldBarTip)  {
@@ -201,7 +203,6 @@ static CGFloat const kMultiplierForMimimalBarValue = 0.03f;
         for (NSInteger row = 0; row < indexPath.row; row++) {
             offset += [self heightForRowAtIndexPath:[NSIndexPath indexPathForRow:row inSection:indexPath.section]];
         }
-        
         return @([self heightForRowAtIndexPath:indexPath] + offset);
         
         // Offset
@@ -236,6 +237,49 @@ static CGFloat const kMultiplierForMimimalBarValue = 0.03f;
     
     UIColor *color = [self.dataSource stackedBarChartView:self colorForRowAtIndexPath:indexPath];
     return [CPTFill fillWithColor:[CPTColor colorWithCGColor:[color CGColor]]];
+}
+
+#pragma mark - Properties
+
+- (void)setDataSource:(id<YAStackedBarChartViewDataSource>)dataSource {
+    if (![_dataSource isEqual:dataSource]) {
+        _dataSource = dataSource;
+        
+        [self reloadData];
+    }
+}
+
+- (void)setSectionWidth:(CGFloat)sectionWidth {
+    if (!(_sectionWidth == sectionWidth)) {
+        _sectionWidth = sectionWidth;
+        
+        [self reloadData];
+    }
+}
+
+- (void)setDistanceBetweenBars:(CGFloat)distanceBetweenBars {
+    if (!(_distanceBetweenBars == distanceBetweenBars)) {
+        _distanceBetweenBars = distanceBetweenBars;
+        
+        [self reloadData];
+    }
+}
+
+
+- (void)setOffsetFromLeft:(CGFloat)offsetFromLeft {
+    if (!(_offsetFromLeft == offsetFromLeft)) {
+        _offsetFromLeft = offsetFromLeft;
+        
+        [self reloadData];
+    }
+}
+
+- (void)setOffsetFromRight:(CGFloat)offsetFromRight {
+    if (!(_offsetFromRight == offsetFromRight)) {
+        _offsetFromRight = offsetFromRight;
+        
+        [self reloadData];
+    }
 }
 
 @end

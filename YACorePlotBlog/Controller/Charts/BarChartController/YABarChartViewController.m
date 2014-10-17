@@ -56,6 +56,7 @@
 }
 
 #pragma mark - NSFetchedResultsControllerDelegate
+
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
     [self.view reloadData];
 }
