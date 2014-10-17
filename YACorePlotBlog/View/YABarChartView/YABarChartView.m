@@ -82,7 +82,7 @@ static NSUInteger const kMultiplierToAdjustAxisYSize = 10;
     CPTXYAxisSet *axisSet = (CPTXYAxisSet *)self.graph.axisSet;
     //setup style for label for X axis
     CPTMutableTextStyle *textStyle = [CPTMutableTextStyle textStyle];
-    textStyle.fontName = @"Arial";
+    textStyle.fontName = @"Helvetica";
     textStyle.fontSize = kAxisXLabelTextFontSize;
     textStyle.color = [CPTColor colorWithCGColor:[UIColor blueColor].CGColor];
     
@@ -119,23 +119,8 @@ static NSUInteger const kMultiplierToAdjustAxisYSize = 10;
     
     axisSet.xAxis.majorGridLineStyle = lineStyle;
     
-    // Create bar plot and add it to the graph
-    CPTBarPlot *plot = [[CPTBarPlot alloc] init];
-    plot.dataSource = self;
-    plot.delegate = self;
-    [plot setBarsAreHorizontal:YES];
-    plot.barWidth = [[NSDecimalNumber numberWithFloat:kBarWidth] decimalValue];
-    plot.barOffset = [[NSDecimalNumber numberWithFloat:kBarOffset] decimalValue];
-    [plot setBarsAreHorizontal:YES];
-    
-    // Remove bar outlines
-    CPTMutableLineStyle *borderLineStyle = [CPTMutableLineStyle lineStyle];
-    borderLineStyle.lineColor = [CPTColor whiteColor];
-    borderLineStyle.lineWidth = kBorderLineStyleWidth;
-    plot.lineStyle = borderLineStyle;
-
-    //makes all Plot reload their data
-    [self.graph addPlot:plot];
+    _barWidth = kBarWidth;
+    _distanceBetweenBars  = kBarOffset;
 }
 
 
@@ -145,6 +130,22 @@ static NSUInteger const kMultiplierToAdjustAxisYSize = 10;
     CPTXYPlotSpace *plotSpace = (CPTXYPlotSpace *)self.graph.defaultPlotSpace;
     
     NSInteger numberOfPlots = [self.dataSource numberOfChartsInBarChartView:self];
+    
+    for (int i = 0; i < numberOfPlots; i++) {
+        CPTBarPlot *plot = [[CPTBarPlot alloc] init];
+        plot.dataSource = self;
+        plot.delegate = self;
+        [plot setBarsAreHorizontal:YES];
+        plot.barWidth = [[NSDecimalNumber numberWithFloat:_barWidth] decimalValue];
+        plot.barOffset = [[NSDecimalNumber numberWithFloat:_distanceBetweenBars] decimalValue];
+        [plot setBarsAreHorizontal:YES];
+        // Remove bar outlines
+        CPTMutableLineStyle *borderLineStyle = [CPTMutableLineStyle lineStyle];
+        borderLineStyle.lineColor = [CPTColor whiteColor];
+        borderLineStyle.lineWidth = kBorderLineStyleWidth;
+        plot.lineStyle = borderLineStyle;
+        [self.graph addPlot:plot];
+    }
     
     CPTMutableTextStyle *textStyle = [CPTMutableTextStyle textStyle];
     textStyle.fontName = @"Arial";
@@ -232,6 +233,52 @@ static NSUInteger const kMultiplierToAdjustAxisYSize = 10;
         _dataSource = dataSource;
         
         //reload data after setting dataSource
+        [self reloadData];
+    }
+}
+
+- (void)setBarWidth:(CGFloat)sectionWidth {
+    if (!(_barWidth == sectionWidth)) {
+        _barWidth = sectionWidth;
+        
+        [self reloadData];
+    }
+}
+
+- (void)setDistanceBetweenBars:(CGFloat)distanceBetweenBars {
+    if (!(_distanceBetweenBars == distanceBetweenBars)) {
+        _distanceBetweenBars = distanceBetweenBars;
+        
+        [self reloadData];
+    }
+}
+
+
+- (void)setOffsetFromLeft:(CGFloat)offsetFromLeft {
+    if (!(_offsetFromLeft == offsetFromLeft)) {
+        _offsetFromLeft = offsetFromLeft;
+        
+        [self reloadData];
+    }
+}
+
+- (void)setOffsetFromRight:(CGFloat)offsetFromRight {
+    if (!(_offsetFromRight == offsetFromRight)) {
+        _offsetFromRight = offsetFromRight;
+        
+        [self reloadData];
+    }
+}
+
+- (void)setPaddingInset:(YAPaddingInset)paddingInset {
+    if ((_paddingInset.top != paddingInset.top) ||
+        (_paddingInset.right != paddingInset.right) ||
+        (_paddingInset.bottom != paddingInset.bottom) ||
+        (_paddingInset.left != paddingInset.left)
+        )  {
+        
+        _paddingInset = paddingInset;
+        
         [self reloadData];
     }
 }

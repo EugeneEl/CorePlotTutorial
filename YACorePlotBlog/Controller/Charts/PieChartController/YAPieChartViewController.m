@@ -42,6 +42,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    //customize your chart here, but do not forget about sizes of your view
+    self.view.pieRadius = 100.f;
+    self.view.pieInnerCornerRadius = 0.f;
     NSLog(@"%@", [YAExercise MR_findAll]);
 }
 

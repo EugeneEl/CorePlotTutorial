@@ -25,4 +25,8 @@
 
 - (void)reloadData;
 
+@property (nonatomic, assign) CGFloat pieInnerCornerRadius;
+@property (nonatomic, assign) CGFloat pieRadius;
+@property (nonatomic, assign) CGFloat borderLineWidth;
+
 @end

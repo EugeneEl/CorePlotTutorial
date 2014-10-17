@@ -42,6 +42,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    //customize your chart basic design here
+    self.view.barWidth = 5.f;
+    self.view.distanceBetweenBars = 5.f;
+    
     NSLog(@"%@", [YAExercise MR_findAll]);
 }
 
@@ -56,9 +61,9 @@
 }
 
 #pragma mark - NSFetchedResultsControllerDelegate
+
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
     [self.view reloadData];
 }
-
 
 @end
