@@ -14,8 +14,8 @@
 //protocol for our public datasource
 @protocol YAPieChartViewDataSource <NSObject>
 
-- (NSInteger)numberOfChartsInPieChartView:(YAPieChartView *)pieChartView;
-- (id <YAPieChartProtocol>)pieChartView:(YAPieChartView *)pieChartView plotAtIndex:(NSInteger)index;
+- (NSInteger)numberOfSectorsInPieChartView:(YAPieChartView *)pieChartView;
+- (id <YAPieChartProtocol>)pieChartView:(YAPieChartView *)pieChartView sectorAtIndex:(NSInteger)index;
 
 @end
 

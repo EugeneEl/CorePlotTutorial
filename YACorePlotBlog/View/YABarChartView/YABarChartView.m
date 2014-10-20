@@ -130,7 +130,7 @@ static NSUInteger const kMultiplierToAdjustAxisYSize = 10;
 - (void)reloadData {
     CPTXYPlotSpace *plotSpace = (CPTXYPlotSpace *)self.graph.defaultPlotSpace;
     
-    NSInteger numberOfPlots = [self.dataSource numberOfChartsInBarChartView:self];
+    NSInteger numberOfPlots = [self.dataSource numberOfBarsInBarChartView:self];
     
     
     CPTBarPlot *plot = [[CPTBarPlot alloc] init];
@@ -157,7 +157,7 @@ static NSUInteger const kMultiplierToAdjustAxisYSize = 10;
     CGFloat maxValue = 0.f;
     self.toalValue = 0.f;
     for (int i = 0; i < numberOfPlots; i++) {
-        id <YABarChartProtocol> barProtocol = [self.dataSource barChartView:self plotAtIndex:i];
+        id <YABarChartProtocol> barProtocol = [self.dataSource barChartView:self barAtIndex:i];
         maxValue = fmaxf(maxValue, [[barProtocol barValue] integerValue]);
         self.toalValue += [[barProtocol barValue] integerValue];
     }
@@ -170,7 +170,7 @@ static NSUInteger const kMultiplierToAdjustAxisYSize = 10;
                                                     length:CPTDecimalFromInteger((numberOfPlots)*kMultiplierToAdjustAxisYSize)];
     
     for (int i = 0; i < numberOfPlots; i++) {
-        id <YABarChartProtocol> barProtocol = [self.dataSource barChartView:self plotAtIndex:i];
+        id <YABarChartProtocol> barProtocol = [self.dataSource barChartView:self barAtIndex:i];
         CPTAxisLabel *label = [[CPTAxisLabel alloc] initWithText:[barProtocol barName] textStyle:textStyle];
         [label setTickLocation:CPTDecimalFromInt((i*kMultiplierToAdjustAxisYSize)+5)];
         [labelsArray addObject:label];
@@ -212,12 +212,12 @@ static NSUInteger const kMultiplierToAdjustAxisYSize = 10;
 #pragma mark - CPTPlotDataSource
 
 - (NSUInteger)numberOfRecordsForPlot:(CPTPlot *)plot {
-    return [self.dataSource numberOfChartsInBarChartView:self];
+    return [self.dataSource numberOfBarsInBarChartView:self];
 }
 
 - (NSNumber *)numberForPlot:(CPTPlot *)plot field:(NSUInteger)fieldEnum recordIndex:(NSUInteger)index {
     
-    id <YABarChartProtocol> barProtocol = [self.dataSource barChartView:self plotAtIndex:index];
+    id <YABarChartProtocol> barProtocol = [self.dataSource barChartView:self barAtIndex:index];
     
     //for Y coordinate we return index of plot multupled by our constant
     if (fieldEnum == CPTBarPlotFieldBarLocation) {
@@ -239,13 +239,13 @@ static NSUInteger const kMultiplierToAdjustAxisYSize = 10;
 
 - (CPTFill *)barFillForBarPlot:(CPTBarPlot *)plot recordIndex:(NSUInteger)index {
     //any object which implemented methods of <YABarChartProtocol> can return color for plot
-    id <YABarChartProtocol> barProtocol = [self.dataSource barChartView:self plotAtIndex:index];
+    id <YABarChartProtocol> barProtocol = [self.dataSource barChartView:self barAtIndex:index];
     
     return [CPTFill fillWithColor:[CPTColor colorWithCGColor:[[barProtocol barColor] CGColor]]];
 }
 
 - (NSString *)legendTitleForBarPlot:(CPTBarPlot *)barPlot recordIndex:(NSUInteger)idx {
-    id <YABarChartProtocol> barProtocol = [self.dataSource barChartView:self plotAtIndex:idx];
+    id <YABarChartProtocol> barProtocol = [self.dataSource barChartView:self barAtIndex:idx];
     
     double percentage = (100.f * [[barProtocol barValue] integerValue]) / self.toalValue;
     NSString *legendLabelString = [NSString stringWithFormat:@"%@ %ld (%.2f%%)", [barProtocol barName], (long)[[barProtocol barValue] integerValue], percentage];

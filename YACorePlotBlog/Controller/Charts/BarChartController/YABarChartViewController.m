@@ -52,11 +52,11 @@
 
 #pragma mark - YABarChartViewDataSource
 
-- (NSInteger)numberOfChartsInBarChartView:(YABarChartView *)barChartView {
+- (NSInteger)numberOfBarsInBarChartView:(YABarChartView *)barChartView {
     return  [self.fetchedResultsController.fetchedObjects count];
 }
 
-- (id <YABarChartProtocol>)barChartView:(YABarChartView *)barChartView plotAtIndex:(NSInteger)index {
+- (id <YABarChartProtocol>)barChartView:(YABarChartView *)barChartView barAtIndex:(NSInteger)index {
     return [self.fetchedResultsController.fetchedObjects objectAtIndex:index];
 }
 

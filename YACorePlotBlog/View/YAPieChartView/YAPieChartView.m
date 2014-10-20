@@ -93,10 +93,10 @@ static CGFloat const kMinimalDegreesToDisplay = 3.f;
     
     //calculating total amout of data which we need to display on chart
     self.totalAmount = 0.f;
-    NSUInteger numberOfCharts = [_dataSource numberOfChartsInPieChartView:self];
+    NSUInteger numberOfCharts = [_dataSource numberOfSectorsInPieChartView:self];
     for (int i = 0; i < numberOfCharts; i ++) {
-        self.totalAmount += [[[_dataSource pieChartView:self plotAtIndex:i] pieAmountForSectorSize] integerValue];
-    NSLog(@"sector:%d",[[[_dataSource pieChartView:self plotAtIndex:i] pieAmountForSectorSize] integerValue]);
+        self.totalAmount += [[[_dataSource pieChartView:self sectorAtIndex:i] pieAmountForSectorSize] integerValue];
+    NSLog(@"sector:%d",[[[_dataSource pieChartView:self sectorAtIndex:i] pieAmountForSectorSize] integerValue]);
     
     }
     
@@ -141,11 +141,11 @@ static CGFloat const kMinimalDegreesToDisplay = 3.f;
 #pragma mark - CPTPieChartDataSource
 
 - (NSUInteger)numberOfRecordsForPlot:(CPTPlot *)plot {
-   return [self.dataSource numberOfChartsInPieChartView:self];
+   return [self.dataSource numberOfSectorsInPieChartView:self];
 }
 
 - (NSNumber *)numberForPlot:(CPTPlot *)plot field:(NSUInteger)fieldEnum recordIndex:(NSUInteger)index {
-    id <YAPieChartProtocol> pieProtocol = [self.dataSource pieChartView:self plotAtIndex:index];
+    id <YAPieChartProtocol> pieProtocol = [self.dataSource pieChartView:self sectorAtIndex:index];
     if ([[pieProtocol pieAmountForSectorSize] integerValue] < self.degreeAmount) {
         return @(self.degreeAmount);
     }
@@ -154,7 +154,7 @@ static CGFloat const kMinimalDegreesToDisplay = 3.f;
 
 - (CPTLayer *)dataLabelForPlot:(CPTPlot *)plot recordIndex:(NSUInteger)idx {
     
-    id <YAPieChartProtocol> pieProtocol = [self.dataSource pieChartView:self plotAtIndex:idx];
+    id <YAPieChartProtocol> pieProtocol = [self.dataSource pieChartView:self sectorAtIndex:idx];
     static CPTMutableTextStyle *labelText = nil;
     if (!labelText) {
         labelText= [[CPTMutableTextStyle alloc] init];
@@ -170,12 +170,12 @@ static CGFloat const kMinimalDegreesToDisplay = 3.f;
 
 //color for pies
 - (CPTFill *)sliceFillForPieChart:(CPTPieChart *)pieChart recordIndex:(NSUInteger)index {
-    id <YAPieChartProtocol> pieProtocol = [self.dataSource pieChartView:self plotAtIndex:index];
+    id <YAPieChartProtocol> pieProtocol = [self.dataSource pieChartView:self sectorAtIndex:index];
     return [CPTFill fillWithColor:[CPTColor colorWithCGColor:[[pieProtocol pieColor] CGColor]]];
 }
 
 - (NSString *)legendTitleForPieChart:(CPTPieChart *)pieChart recordIndex:(NSUInteger)idx {
-    id <YAPieChartProtocol> pieProtocol = [self.dataSource  pieChartView:self plotAtIndex:idx];
+    id <YAPieChartProtocol> pieProtocol = [self.dataSource  pieChartView:self sectorAtIndex:idx];
     return [pieProtocol pieName];
 }
 

@@ -22,8 +22,8 @@ typedef struct {
 //protocol for our public datasource
 @protocol YABarChartViewDataSource <NSObject>
 
-- (NSInteger)numberOfChartsInBarChartView:(YABarChartView *)barChartView;
-- (id <YABarChartProtocol>)barChartView:(YABarChartView *)barChartView plotAtIndex:(NSInteger)index;
+- (NSInteger)numberOfBarsInBarChartView:(YABarChartView *)barChartView;
+- (id <YABarChartProtocol>)barChartView:(YABarChartView *)barChartView barAtIndex:(NSInteger)index;
 
 @end
 

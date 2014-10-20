@@ -51,11 +51,11 @@
 
 #pragma mark - YABarChartViewDataSource
 
-- (NSInteger)numberOfChartsInPieChartView:(YAPieChartView *)pieChartView{
+- (NSInteger)numberOfSectorsInPieChartView:(YAPieChartView *)pieChartView{
     return  [self.fetchedResultsController.fetchedObjects count];
 }
 
-- (id <YAPieChartProtocol>)pieChartView:(YAPieChartView *)pieChartView plotAtIndex:(NSInteger)index {
+- (id <YAPieChartProtocol>)pieChartView:(YAPieChartView *)pieChartView sectorAtIndex:(NSInteger)index {
     return [self.fetchedResultsController.fetchedObjects objectAtIndex:index];
 }
 
@@ -64,8 +64,6 @@
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
     [self.view reloadData];
 }
-
-
 
 
 @end
