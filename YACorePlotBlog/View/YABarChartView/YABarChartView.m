@@ -2,7 +2,7 @@
 //  YABartChartView.m
 //  CorePlotBlog
 //
-//  Created by Евгений on 13.10.14.
+//  Created by Eugene Goloboyar on 13.10.14.
 //  Copyright (c) 2014 Yalantis. All rights reserved.
 //
 
@@ -30,7 +30,6 @@ static NSUInteger const kMultiplierToAdjustAxisYSize = 10;
 
 @property (nonatomic, strong) CPTXYGraph *graph;
 @property (nonatomic, assign) CGFloat defaultMinimalBarValue;
-@property (nonatomic, assign) CGFloat toalValue;
 
 @end
 
@@ -129,10 +128,7 @@ static NSUInteger const kMultiplierToAdjustAxisYSize = 10;
 
 - (void)reloadData {
     CPTXYPlotSpace *plotSpace = (CPTXYPlotSpace *)self.graph.defaultPlotSpace;
-    
     NSInteger numberOfPlots = [self.dataSource numberOfBarsInBarChartView:self];
-    
-    
     CPTBarPlot *plot = [[CPTBarPlot alloc] init];
     plot.dataSource = self;
     plot.delegate = self;
@@ -153,13 +149,11 @@ static NSUInteger const kMultiplierToAdjustAxisYSize = 10;
     textStyle.fontSize = kAxisXLabelTextFontSize;
     NSMutableArray *labelsArray = [NSMutableArray array];
     
-    //calculated maxWidth  plot
+    //calculated maxWidth  for bar
     CGFloat maxValue = 0.f;
-    self.toalValue = 0.f;
     for (int i = 0; i < numberOfPlots; i++) {
         id <YABarChartProtocol> barProtocol = [self.dataSource barChartView:self barAtIndex:i];
         maxValue = fmaxf(maxValue, [[barProtocol barValue] integerValue]);
-        self.toalValue += [[barProtocol barValue] integerValue];
     }
     
     //recalculated plotSpace for X axe with maxWidth
@@ -182,20 +176,17 @@ static NSUInteger const kMultiplierToAdjustAxisYSize = 10;
     theLegend.fill = [CPTFill fillWithColor:[CPTColor whiteColor]];
     theLegend.borderLineStyle = [CPTLineStyle lineStyle];
     theLegend.cornerRadius = 5.0;
-    
-    //TODO: refactor this part, please
     CGFloat legendPadding = -(self.bounds.size.width / 8);
     self.graph.legendDisplacement = CGPointMake(legendPadding + 55, 0.0);
     self.graph.legend = theLegend;
 
-    
     CPTXYAxisSet *axisSet = (CPTXYAxisSet *)self.graph.axisSet;
     
     [axisSet.yAxis setLabelingPolicy: CPTAxisLabelingPolicyNone];
     [axisSet.yAxis setAxisLabels:[NSSet setWithArray:labelsArray]];
     
     
-    //recalculated default minimalBarValue for to make all plots visible even if they depict small amouts of data
+    //recalculated default minimalBarValue for to make all bars visible even if they depict small amouts of data
     self.defaultMinimalBarValue = ((maxValue) * kMultiplierForMimimalBarValue);
 
     //recalculated interval for axis

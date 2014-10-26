@@ -2,7 +2,7 @@
 //  YAStackedBarChartSectionDataSource.h
 //  YACorePlotBlog
 //
-//  Created by Евгений on 17.10.14.
+//  Created by Eugene Goloboyar on 17.10.14.
 //  Copyright (c) 2014 Yalantis. All rights reserved.
 //
 
