@@ -246,11 +246,7 @@ static NSUInteger const kMultiplierToAdjustAxisYSize = 10;
 
 - (NSString *)legendTitleForBarPlot:(CPTBarPlot *)barPlot recordIndex:(NSUInteger)idx {
     id <YABarChartProtocol> barProtocol = [self.dataSource barChartView:self barAtIndex:idx];
-    
-    double percentage = (100.f * [[barProtocol barValue] integerValue]) / self.toalValue;
-    NSString *legendLabelString = [NSString stringWithFormat:@"%@ %ld (%.2f%%)", [barProtocol barName], (long)[[barProtocol barValue] integerValue], percentage];
-    
-    return legendLabelString;
+    return [barProtocol barLegendString];
 }
 
 #pragma mark - Properties

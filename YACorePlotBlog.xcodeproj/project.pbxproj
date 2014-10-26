@@ -37,7 +37,6 @@
 		3EDA845919EEAE6200231395 /* YABarChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EDA845819EEAE6200231395 /* YABarChartView.m */; };
 		3EDA845C19EEAEB500231395 /* YAExercise+YABarChartProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EDA845B19EEAEB500231395 /* YAExercise+YABarChartProtocol.m */; };
 		3EDA846319EEAFDE00231395 /* YABarChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EDA846219EEAFDE00231395 /* YABarChartViewController.m */; };
-		3EDA846619EEB05700231395 /* YABarChartContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EDA846519EEB05700231395 /* YABarChartContainerViewController.m */; };
 		3EDA846B19EEB1AF00231395 /* UIColor+YAColorWithHexString.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EDA846A19EEB1AF00231395 /* UIColor+YAColorWithHexString.m */; };
 		9DB9DD8CDF274C07B5CDC3E8 /* libPods-YACorePlotBlog.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DD830FEED37478FA9AC9EDC /* libPods-YACorePlotBlog.a */; };
 /* End PBXBuildFile section */
@@ -105,8 +104,6 @@
 		3EDA845B19EEAEB500231395 /* YAExercise+YABarChartProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "YAExercise+YABarChartProtocol.m"; sourceTree = "<group>"; };
 		3EDA846119EEAFDE00231395 /* YABarChartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YABarChartViewController.h; sourceTree = "<group>"; };
 		3EDA846219EEAFDE00231395 /* YABarChartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YABarChartViewController.m; sourceTree = "<group>"; };
-		3EDA846419EEB05700231395 /* YABarChartContainerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YABarChartContainerViewController.h; sourceTree = "<group>"; };
-		3EDA846519EEB05700231395 /* YABarChartContainerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YABarChartContainerViewController.m; sourceTree = "<group>"; };
 		3EDA846919EEB1AF00231395 /* UIColor+YAColorWithHexString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+YAColorWithHexString.h"; sourceTree = "<group>"; };
 		3EDA846A19EEB1AF00231395 /* UIColor+YAColorWithHexString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+YAColorWithHexString.m"; sourceTree = "<group>"; };
 		6DD830FEED37478FA9AC9EDC /* libPods-YACorePlotBlog.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-YACorePlotBlog.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -378,8 +375,6 @@
 			children = (
 				3EDA846119EEAFDE00231395 /* YABarChartViewController.h */,
 				3EDA846219EEAFDE00231395 /* YABarChartViewController.m */,
-				3EDA846419EEB05700231395 /* YABarChartContainerViewController.h */,
-				3EDA846519EEB05700231395 /* YABarChartContainerViewController.m */,
 			);
 			path = BarChartController;
 			sourceTree = "<group>";
@@ -548,7 +543,6 @@
 				3EDA846319EEAFDE00231395 /* YABarChartViewController.m in Sources */,
 				3E18983419EE9FE800804CCC /* main.m in Sources */,
 				3EA9E81019F0E51E00F73C3D /* NSDate+YABeginAndAndOfDay.m in Sources */,
-				3EDA846619EEB05700231395 /* YABarChartContainerViewController.m in Sources */,
 				3EDA844619EEA61300231395 /* YAModel.xcdatamodeld in Sources */,
 				3E022F2919F02193005F7787 /* YAPieChartViewController.m in Sources */,
 				3EA9E80819F0DDB300F73C3D /* YAStackedBarChartObject.m in Sources */,

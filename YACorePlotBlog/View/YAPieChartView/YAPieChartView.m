@@ -95,9 +95,7 @@ static CGFloat const kMinimalDegreesToDisplay = 3.f;
     self.totalAmount = 0.f;
     NSUInteger numberOfCharts = [_dataSource numberOfSectorsInPieChartView:self];
     for (int i = 0; i < numberOfCharts; i ++) {
-        self.totalAmount += [[[_dataSource pieChartView:self sectorAtIndex:i] pieAmountForSectorSize] integerValue];
-    NSLog(@"sector:%d",[[[_dataSource pieChartView:self sectorAtIndex:i] pieAmountForSectorSize] integerValue]);
-    
+        self.totalAmount += [[[_dataSource pieChartView:self sectorAtIndex:i] sectorSize] integerValue];
     }
     
     // Remove previous plots
@@ -105,7 +103,6 @@ static CGFloat const kMinimalDegreesToDisplay = 3.f;
         [self.graph removePlot:plot];
     }];
     
-
         // Add pie chart
         CPTPieChart *piePlot = [[CPTPieChart alloc] init];
         piePlot.dataSource = self;
@@ -146,10 +143,10 @@ static CGFloat const kMinimalDegreesToDisplay = 3.f;
 
 - (NSNumber *)numberForPlot:(CPTPlot *)plot field:(NSUInteger)fieldEnum recordIndex:(NSUInteger)index {
     id <YAPieChartProtocol> pieProtocol = [self.dataSource pieChartView:self sectorAtIndex:index];
-    if ([[pieProtocol pieAmountForSectorSize] integerValue] < self.degreeAmount) {
+    if ([[pieProtocol sectorSize] integerValue] < self.degreeAmount) {
         return @(self.degreeAmount);
     }
-    return [pieProtocol pieAmountForSectorSize];
+    return [pieProtocol sectorSize];
 }
 
 - (CPTLayer *)dataLabelForPlot:(CPTPlot *)plot recordIndex:(NSUInteger)idx {
@@ -160,23 +157,19 @@ static CGFloat const kMinimalDegreesToDisplay = 3.f;
         labelText= [[CPTMutableTextStyle alloc] init];
         labelText.color = [CPTColor grayColor];
     }
-    
-    double percentage = (100.f * [[pieProtocol pieAmountForSectorSize] integerValue]) / self.totalAmount;
-    NSString *labelString = [NSString stringWithFormat:@"%ld (%.2f%%)", (long)[[pieProtocol pieAmountForSectorSize] integerValue], percentage];
-    return [[CPTTextLayer alloc] initWithText:labelString style:labelText];
+    return [[CPTTextLayer alloc] initWithText:[pieProtocol sectorLegendString] style:labelText];
 }
 
 #pragma mark - CPTPieChartDelegate
 
-//color for pies
 - (CPTFill *)sliceFillForPieChart:(CPTPieChart *)pieChart recordIndex:(NSUInteger)index {
     id <YAPieChartProtocol> pieProtocol = [self.dataSource pieChartView:self sectorAtIndex:index];
-    return [CPTFill fillWithColor:[CPTColor colorWithCGColor:[[pieProtocol pieColor] CGColor]]];
+    return [CPTFill fillWithColor:[CPTColor colorWithCGColor:[[pieProtocol sectorColor] CGColor]]];
 }
 
 - (NSString *)legendTitleForPieChart:(CPTPieChart *)pieChart recordIndex:(NSUInteger)idx {
     id <YAPieChartProtocol> pieProtocol = [self.dataSource  pieChartView:self sectorAtIndex:idx];
-    return [pieProtocol pieName];
+    return [pieProtocol sectorName];
 }
 
 #pragma mark - Properties

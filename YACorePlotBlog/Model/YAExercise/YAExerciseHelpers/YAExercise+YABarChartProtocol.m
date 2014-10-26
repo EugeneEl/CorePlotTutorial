@@ -29,7 +29,6 @@
 }
 
 - (NSString *)barLegendString {
-    
     double totalValue = 0;
     for (YASet* set in [YASet MR_findAll]) {
         totalValue += [[set valueForKeyPath:@"repCount"] floatValue];

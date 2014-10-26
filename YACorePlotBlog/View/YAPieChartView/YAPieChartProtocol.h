@@ -12,8 +12,9 @@
 
 @required
 
-- (UIColor *)pieColor;
-- (NSNumber *)pieAmountForSectorSize;
-- (NSString *)pieName;
+- (UIColor *)sectorColor;
+- (NSNumber *)sectorSize;
+- (NSString *)sectorName;
+- (NSString *)sectorLegendString;
 
 @end
