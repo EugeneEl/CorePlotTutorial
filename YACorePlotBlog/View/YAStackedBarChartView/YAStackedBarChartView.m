@@ -10,7 +10,6 @@
 
 static CGFloat const kAxisXLabelTextFontSize = 12.0f;
 static CGFloat const kLineWidth = 1.0f;
-static CGFloat const kNumberOfTicksAtXAxes = 12.f;
 static CGFloat const kMultiplierForMimimalBarValue = 0.03f;
 static CGFloat const kDefaultPaddingTop = 10.0f;
 static CGFloat const kDefaultPaddingRight = 10.0f;

@@ -21,7 +21,6 @@ static CGFloat const kMajorTickLength = 5.0f;
 static CGFloat const kMinorTickLength = 5.0f;
 static CGFloat const kDefaultTickInterval = 1.0f;
 static CGFloat const kBorderLineStyleWidth = .5f;
-static CGFloat const kNumberOfTicksAtXAxes = 12.f;
 static CGFloat const kMultiplierForMimimalBarValue = 0.015f;
 static NSUInteger const kMultiplierToAdjustAxisYSize = 10;
 
