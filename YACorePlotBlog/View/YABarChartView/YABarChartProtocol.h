@@ -15,5 +15,6 @@
 - (UIColor *)barColor;
 - (NSNumber *)barValue;
 - (NSString *)barName;
+- (NSString *)barLegendString;
 
 @end

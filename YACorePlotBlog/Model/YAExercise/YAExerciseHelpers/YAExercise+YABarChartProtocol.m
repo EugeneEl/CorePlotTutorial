@@ -8,6 +8,9 @@
 
 #import "YAExercise+YABarChartProtocol.h"
 
+//model
+#import "YASet.h"
+
 //category
 #import "UIColor+YAColorWithHexString.h"
 
@@ -25,5 +28,16 @@
     return self.name;
 }
 
+- (NSString *)barLegendString {
+    
+    double totalValue = 0;
+    for (YASet* set in [YASet MR_findAll]) {
+        totalValue += [[set valueForKeyPath:@"repCount"] floatValue];
+    }
+    double percentage = (100.f * [[self barValue] integerValue]) / totalValue;
+    NSString *legendLabelString = [NSString stringWithFormat:@"%@ %ld (%.2f%%)", [self barName], (long)[[self barValue] integerValue], percentage];
+    
+    return legendLabelString;
+}
 
 @end
