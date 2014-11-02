@@ -54,6 +54,7 @@ static CGFloat const kDefaultDistanceBetweenBars = 5.0f;
     self.graph = [[CPTXYGraph alloc] initWithFrame:CGRectZero];
     [self setHostedGraph:self.graph];
     
+    self.defaultMinimalHegiht = 0.05f;
     [self.graph setValue:@(0.f) forKey:@"paddingLeft"];
     [self.graph setValue:@(0.f) forKey:@"paddingTop"];
     [self.graph setValue:@(0.f) forKey:@"paddingRight"];

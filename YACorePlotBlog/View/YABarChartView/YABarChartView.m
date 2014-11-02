@@ -64,6 +64,8 @@ static NSUInteger const kMultiplierToAdjustAxisYSize = 10;
     self.graph = [[CPTXYGraph alloc] initWithFrame:self.bounds];
     [self setHostedGraph:self.graph];
     
+    
+    self.defaultMinimalBarValue = 0.05f;
     //remove default core plot border around graph
     [self.graph setValue:@(0.f) forKey:@"paddingLeft"];
     [self.graph setValue:@(0.f) forKey:@"paddingTop"];

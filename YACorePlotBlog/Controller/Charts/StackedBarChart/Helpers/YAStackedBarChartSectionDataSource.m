@@ -15,6 +15,10 @@
 //category
 #import "NSDate+YABeginAndAndOfDay.h"
 
+static NSUInteger const kTestYear = 2014;
+static NSUInteger const kTestMonth = 10;
+static NSUInteger const kTestDay = 14;
+
 @interface YAStackedBarChartSectionDataSource ()
 
 @property (nonatomic, strong) NSArray *sections;
@@ -42,7 +46,7 @@
 + (instancetype)dataSourceForLast7DaysInContext:(NSManagedObjectContext *)context {
     // TODO: Please, refactor this method!
     NSMutableArray *dates = [NSMutableArray array];
-    NSDate *today = [NSDate date];
+    NSDate *today = [NSDate ya_dateWithYear:kTestYear month:kTestMonth day:kTestDay];
     
     [dates addObject:[today ya_dateWithDaysAgo:6]];
     [dates addObject:[today ya_dateWithDaysAgo:5]];

@@ -10,6 +10,15 @@
 
 @implementation NSDate (YABeginAndAndOfDay)
 
++ (NSDate *)ya_dateWithYear:(NSInteger)year month:(NSInteger)month day:(NSInteger)day {
+    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    NSDateComponents *components = [[NSDateComponents alloc] init];
+    [components setYear:year];
+    [components setMonth:month];
+    [components setDay:day];
+    return [calendar dateFromComponents:components];
+}
+
 // https://github.com/mattt/CupertinoYankee
 // Thank you, Mattt!
 - (NSDate *)ya_beginningOfDay {
@@ -36,5 +45,6 @@
     
     return [calendar dateByAddingComponents:components toDate:self options:0];
 }
+
 
 @end
