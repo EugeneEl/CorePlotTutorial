@@ -157,6 +157,10 @@ static NSUInteger const kMultiplierToAdjustAxisYSize = 10;
         maxValue = fmaxf(maxValue, [[barProtocol barValue] integerValue]);
     }
     
+    if (self.defaultMinimalBarValue < maxValue) {
+        self.defaultMinimalBarValue = maxValue;
+    }
+    
     //recalculated plotSpace for X axe with maxWidth
     //recalculated plotSpace for Y axe with number of plots multipled by some constant
     plotSpace.xRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromCGFloat(0.f)

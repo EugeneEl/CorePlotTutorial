@@ -182,6 +182,10 @@ static CGFloat const kDefaultDistanceBetweenBars = 5.0f;
         maxHeight = fmaxf(maxHeight, sectionHeight);
     }
     
+    if (self.defaultMinimalHegiht < maxHeight) {
+        self.defaultMinimalHegiht = maxHeight;
+    }
+    
     //calculatedXAxisWidth
     CGFloat xAxisWidth = 0.f;
     xAxisWidth +=_offsetFromLeft + _sectionWidth * numberOfSection + _distanceBetweenBars * (numberOfSection - 1) + _offsetFromRight;
