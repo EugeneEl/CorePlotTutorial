@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@protocol YAPieChartProtocol <NSObject>
+@protocol YALPieChartProtocol <NSObject>
 
 @required
 

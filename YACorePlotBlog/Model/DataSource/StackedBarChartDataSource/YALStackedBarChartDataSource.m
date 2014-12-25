@@ -6,22 +6,22 @@
 //  Copyright (c) 2014 Yalantis. All rights reserved.
 //
 
-#import "YAStackedBarChartDataSource.h"
+#import "YALStackedBarChartDataSource.h"
 
 //view
-#import "YAStackedBarChartView.h"
+#import "YALStackedBarChartView.h"
 
 //model
 #import "YAStackedBarChartSectionDataSource.h"
 #import "YAStackedBarChartObject.h"
 
-@interface YAStackedBarChartDataSource () <YAStackedBarChartViewDataSource>
+@interface YALStackedBarChartDataSource () <YALStackedBarChartViewDataSource>
 
 @property (nonatomic, strong) YAStackedBarChartSectionDataSource *sectionDataSource;
 
 @end
 
-@implementation YAStackedBarChartDataSource
+@implementation YALStackedBarChartDataSource
 
 #pragma mark - Initialization
 
@@ -36,20 +36,20 @@
 
 #pragma mark - YAStackedBarChartViewDataSource
 
-- (NSInteger)numberOfSectionInStackedBarChartView:(YAStackedBarChartView *)stackedBarChartView {
+- (NSInteger)numberOfSectionInStackedBarChartView:(YALStackedBarChartView *)stackedBarChartView {
     return [self.sectionDataSource numberOfSection];
 }
 
-- (NSInteger)stackedBarChartView:(YAStackedBarChartView *)stackedBarChartView numberOfRowsInSection:(NSInteger)section {
+- (NSInteger)stackedBarChartView:(YALStackedBarChartView *)stackedBarChartView numberOfRowsInSection:(NSInteger)section {
     return [self.sectionDataSource numberOfRowsInSection:section];
 }
 
-- (CGFloat)stackedBarChartView:(YAStackedBarChartView *)stackedBarChartView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+- (CGFloat)stackedBarChartView:(YALStackedBarChartView *)stackedBarChartView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     YAStackedBarChartObject *object = [self.sectionDataSource objectAtIndexPath:indexPath];
     return [object height];
 }
 
-- (UIColor *)stackedBarChartView:(YAStackedBarChartView *)stackedBarChartView colorForRowAtIndexPath:(NSIndexPath *)indexPath {
+- (UIColor *)stackedBarChartView:(YALStackedBarChartView *)stackedBarChartView colorForRowAtIndexPath:(NSIndexPath *)indexPath {
     YAStackedBarChartObject *object = [self.sectionDataSource objectAtIndexPath:indexPath];
     return [object color];
 }

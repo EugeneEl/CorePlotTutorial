@@ -67,7 +67,7 @@
                         <viewControllerLayoutGuide type="top" id="BEg-CH-vmo"/>
                         <viewControllerLayoutGuide type="bottom" id="cLP-Wp-6IU"/>
                     </layoutGuides>
-                    <view key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="lqP-4Q-pKD" customClass="YABarChartView">
+                    <view key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="lqP-4Q-pKD" customClass="YALBarChartView">
                         <rect key="frame" x="0.0" y="0.0" width="288" height="318"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -82,7 +82,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MGW-g3-qyG" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <customObject id="nem-0i-pZw" customClass="YABarChartViewDataSource"/>
+                <customObject id="nem-0i-pZw" customClass="YALBarChartViewDataSource"/>
             </objects>
             <point key="canvasLocation" x="-51" y="-741"/>
         </scene>
@@ -160,7 +160,7 @@
                         <viewControllerLayoutGuide type="top" id="MY9-78-mQD"/>
                         <viewControllerLayoutGuide type="bottom" id="0Z1-s4-pLA"/>
                     </layoutGuides>
-                    <view key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="zbf-2y-GtM" customClass="YAPieChartView">
+                    <view key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="zbf-2y-GtM" customClass="YALPieChartView">
                         <rect key="frame" x="0.0" y="0.0" width="288" height="397"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -175,7 +175,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MHw-7R-jjs" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <customObject id="IVr-B9-uN3" customClass="YAPieChartViewDataSource"/>
+                <customObject id="IVr-B9-uN3" customClass="YALPieChartViewDataSource"/>
             </objects>
             <point key="canvasLocation" x="-51" y="632"/>
         </scene>
@@ -187,7 +187,7 @@
                         <viewControllerLayoutGuide type="top" id="DUi-GE-iFU"/>
                         <viewControllerLayoutGuide type="bottom" id="MFa-dO-chN"/>
                     </layoutGuides>
-                    <view key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="rF0-Qz-Ky7" customClass="YAStackedBarChartView">
+                    <view key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="rF0-Qz-Ky7" customClass="YALStackedBarChartView">
                         <rect key="frame" x="0.0" y="0.0" width="288" height="289"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -201,7 +201,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sVd-ar-D74" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <customObject id="eFJ-SJ-sdW" customClass="YAStackedBarChartDataSource"/>
+                <customObject id="eFJ-SJ-sdW" customClass="YALStackedBarChartDataSource"/>
             </objects>
             <point key="canvasLocation" x="-19" y="-66"/>
         </scene>

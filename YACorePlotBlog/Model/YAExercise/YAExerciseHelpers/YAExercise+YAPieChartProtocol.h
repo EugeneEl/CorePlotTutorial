@@ -9,8 +9,8 @@
 #import "YAExercise.h"
 
 //protocol
-#import "YAPieChartProtocol.h"
+#import "YALPieChartProtocol.h"
 
-@interface YAExercise (YAPieChartProtocol) <YAPieChartProtocol>
+@interface YAExercise (YAPieChartProtocol) <YALPieChartProtocol>
 
 @end

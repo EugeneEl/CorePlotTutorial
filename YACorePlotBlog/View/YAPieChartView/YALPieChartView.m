@@ -6,19 +6,19 @@
 //  Copyright (c) 2014 Yalantis. All rights reserved.
 //
 
-#import "YAPieChartView.h"
+#import "YALPieChartView.h"
 
-static CGFloat const kAreaPaddingTop = 0.0f;
-static CGFloat const kAreaPaddingRight = 0.0f;
-static CGFloat const kAreaPaddingLeft = 0.0f;
-static CGFloat const kAreaPaddingBottom = 0.0f;
-static CGFloat const kPieInnerRadius = 0.0f;
-static CGFloat const kPieRadius = 70.0f;
-static CGFloat const kPieBorderWidth = 1.0f;
-static CGFloat const kStartDrawingPoint = M_PI/2.f;
-static CGFloat const kMinimalDegreesToDisplay = 3.f;
+static CGFloat const YAAreaPaddingTop = 0.0f;
+static CGFloat const YAAreaPaddingRight = 0.0f;
+static CGFloat const YAAreaPaddingLeft = 0.0f;
+static CGFloat const YAAreaPaddingBottom = 0.0f;
+static CGFloat const YAPieInnerRadius = 0.0f;
+static CGFloat const YAPieRadius = 70.0f;
+static CGFloat const YAPieBorderWidth = 1.0f;
+static CGFloat const YAStartDrawingPoint = M_PI/2.f;
+static CGFloat const YALMinimalDegreesToDisplay = 3.f;
 
-@interface YAPieChartView () <CPTPieChartDataSource, CPTPieChartDelegate>
+@interface YALPieChartView () <CPTPieChartDataSource, CPTPieChartDelegate>
 
 @property (nonatomic, strong) CPTXYGraph *graph;
 @property (nonatomic, assign) CGFloat degreeAmount;
@@ -26,7 +26,7 @@ static CGFloat const kMinimalDegreesToDisplay = 3.f;
 
 @end
 
-@implementation YAPieChartView
+@implementation YALPieChartView
 
 #pragma mark - Initialization
 
@@ -64,10 +64,10 @@ static CGFloat const kMinimalDegreesToDisplay = 3.f;
     
     
     //set graph padding and theme
-    self.graph.plotAreaFrame.paddingTop = kAreaPaddingTop;
-    self.graph.plotAreaFrame.paddingRight = kAreaPaddingRight;
-    self.graph.plotAreaFrame.paddingBottom = kAreaPaddingBottom;
-    self.graph.plotAreaFrame.paddingLeft = kAreaPaddingLeft;
+    self.graph.plotAreaFrame.paddingTop = YAAreaPaddingTop;
+    self.graph.plotAreaFrame.paddingRight = YAAreaPaddingRight;
+    self.graph.plotAreaFrame.paddingBottom = YAAreaPaddingBottom;
+    self.graph.plotAreaFrame.paddingLeft = YAAreaPaddingLeft;
     self.graph.plotAreaFrame.plotArea.fill = [CPTFill fillWithColor:[CPTColor clearColor]];
     
     CPTXYAxisSet *axisSet = (CPTXYAxisSet *) self.graph.axisSet;
@@ -82,9 +82,9 @@ static CGFloat const kMinimalDegreesToDisplay = 3.f;
     //disable axis for pie chart
     self.graph.axisSet = nil;
     
-    _pieInnerCornerRadius = kPieInnerRadius;
-    _pieRadius = kPieRadius;
-    _borderLineWidth = kPieBorderWidth;
+    _pieInnerCornerRadius = YAPieInnerRadius;
+    _pieRadius = YAPieRadius;
+    _borderLineWidth = YAPieBorderWidth;
 }
 
 #pragma mark - Public
@@ -110,7 +110,7 @@ static CGFloat const kMinimalDegreesToDisplay = 3.f;
         piePlot.pieRadius = _pieRadius;
         piePlot.pieInnerRadius = _pieInnerCornerRadius;
         piePlot.identifier      = @"Pie Chart 1";
-        piePlot.startAngle      = kStartDrawingPoint;
+        piePlot.startAngle      = YAStartDrawingPoint;
         piePlot.sliceDirection  = CPTPieDirectionCounterClockwise;
         CPTMutableLineStyle *lineStyle = [CPTMutableLineStyle lineStyle];
         lineStyle.lineColor = [CPTColor whiteColor];
@@ -128,7 +128,7 @@ static CGFloat const kMinimalDegreesToDisplay = 3.f;
     self.graph.legend = theLegend;
     
     //calculating amount of data for 1 degree and muliplie it by number of minimal degrees to display
-    self.degreeAmount= (self.totalAmount / 360.f) * kMinimalDegreesToDisplay;
+    self.degreeAmount= (self.totalAmount / 360.f) * YALMinimalDegreesToDisplay;
     
     NSLog(@"totalAmount:%f",self.totalAmount);
     [self.graph reloadData];
@@ -142,7 +142,7 @@ static CGFloat const kMinimalDegreesToDisplay = 3.f;
 }
 
 - (NSNumber *)numberForPlot:(CPTPlot *)plot field:(NSUInteger)fieldEnum recordIndex:(NSUInteger)index {
-    id <YAPieChartProtocol> pieProtocol = [self.dataSource pieChartView:self sectorAtIndex:index];
+    id <YALPieChartProtocol> pieProtocol = [self.dataSource pieChartView:self sectorAtIndex:index];
     if ([[pieProtocol sectorSize] integerValue] < self.degreeAmount) {
         return @(self.degreeAmount);
     }
@@ -151,7 +151,7 @@ static CGFloat const kMinimalDegreesToDisplay = 3.f;
 
 - (CPTLayer *)dataLabelForPlot:(CPTPlot *)plot recordIndex:(NSUInteger)idx {
     
-    id <YAPieChartProtocol> pieProtocol = [self.dataSource pieChartView:self sectorAtIndex:idx];
+    id <YALPieChartProtocol> pieProtocol = [self.dataSource pieChartView:self sectorAtIndex:idx];
     static CPTMutableTextStyle *labelText = nil;
     if (!labelText) {
         labelText= [[CPTMutableTextStyle alloc] init];
@@ -163,12 +163,12 @@ static CGFloat const kMinimalDegreesToDisplay = 3.f;
 #pragma mark - CPTPieChartDelegate
 
 - (CPTFill *)sliceFillForPieChart:(CPTPieChart *)pieChart recordIndex:(NSUInteger)index {
-    id <YAPieChartProtocol> pieProtocol = [self.dataSource pieChartView:self sectorAtIndex:index];
+    id <YALPieChartProtocol> pieProtocol = [self.dataSource pieChartView:self sectorAtIndex:index];
     return [CPTFill fillWithColor:[CPTColor colorWithCGColor:[[pieProtocol sectorColor] CGColor]]];
 }
 
 - (NSString *)legendTitleForPieChart:(CPTPieChart *)pieChart recordIndex:(NSUInteger)idx {
-    id <YAPieChartProtocol> pieProtocol = [self.dataSource  pieChartView:self sectorAtIndex:idx];
+    id <YALPieChartProtocol> pieProtocol = [self.dataSource  pieChartView:self sectorAtIndex:idx];
     return [pieProtocol sectorName];
 }
 

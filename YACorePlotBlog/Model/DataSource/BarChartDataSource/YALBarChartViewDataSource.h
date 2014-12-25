@@ -8,6 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-@interface YABarChartViewDataSource : NSObject
+@interface YALBarChartViewDataSource : NSObject
 
 @end

@@ -6,21 +6,21 @@
 //  Copyright (c) 2014 Yalantis. All rights reserved.
 //
 
-#import "YAPieChartViewDataSource.h"
+#import "YALPieChartViewDataSource.h"
 
 //view
-#import "YAPieChartView.h"
+#import "YALPieChartView.h"
 
 //model
 #import "YAExercise.h"
 
-@interface YAPieChartViewDataSource () <YAPieChartViewDataSource>
+@interface YALPieChartViewDataSource () <YAPieChartViewDataSource>
 
 @property (nonatomic, strong) NSFetchedResultsController *fetchedResultsController;
 
 @end
 
-@implementation YAPieChartViewDataSource
+@implementation YALPieChartViewDataSource
 
 #pragma mark - Initialization
 
@@ -39,11 +39,11 @@
 
 #pragma mark - YAPieChartViewDataSource
 
-- (NSInteger)numberOfSectorsInPieChartView:(YAPieChartView *)pieChartView{
+- (NSInteger)numberOfSectorsInPieChartView:(YALPieChartView *)pieChartView{
     return  [self.fetchedResultsController.fetchedObjects count];
 }
 
-- (id <YAPieChartProtocol>)pieChartView:(YAPieChartView *)pieChartView sectorAtIndex:(NSInteger)index {
+- (id <YALPieChartProtocol>)pieChartView:(YALPieChartView *)pieChartView sectorAtIndex:(NSInteger)index {
     return [self.fetchedResultsController.fetchedObjects objectAtIndex:index];
 }
 

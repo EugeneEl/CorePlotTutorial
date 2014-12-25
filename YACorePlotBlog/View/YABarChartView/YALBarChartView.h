@@ -17,17 +17,17 @@ typedef struct {
     CGFloat left;
 } YAPaddingInset;
 
-@class YABarChartView;
+@class YALBarChartView;
 
 //protocol for our public datasource
 @protocol YABarChartViewDataSource <NSObject>
 
-- (NSInteger)numberOfBarsInBarChartView:(YABarChartView *)barChartView;
-- (id <YABarChartProtocol>)barChartView:(YABarChartView *)barChartView barAtIndex:(NSInteger)index;
+- (NSInteger)numberOfBarsInBarChartView:(YALBarChartView *)barChartView;
+- (id <YABarChartProtocol>)barChartView:(YALBarChartView *)barChartView barAtIndex:(NSInteger)index;
 
 @end
 
-@interface YABarChartView : CPTGraphHostingView
+@interface YALBarChartView : CPTGraphHostingView
 
 //our public dataSource
 @property (nonatomic, weak) IBOutlet id <YABarChartViewDataSource> dataSource;

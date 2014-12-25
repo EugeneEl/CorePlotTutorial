@@ -14,7 +14,7 @@
     NSArray *array = [NSArray arrayWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"YAExercises" ofType:@"plist"]];
     NSManagedObjectContext *ctx = [NSManagedObjectContext MR_contextForCurrentThread];
    [self MR_importFromArray:array inContext:ctx];
-   [ctx MR_saveOnlySelfAndWait];
+    [ctx MR_saveToPersistentStoreAndWait];
 }
 
 @end

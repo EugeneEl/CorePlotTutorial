@@ -261,21 +261,23 @@ NSString * const kMagicalRecordImportAttributeUseDefaultValueWhenNotPresent = @"
 {
     NSMutableArray *objectIDs = [NSMutableArray array];
     
-    [MagicalRecord saveWithBlock:^(NSManagedObjectContext *localContext) 
-    {    
+    
+
+ 
         [listOfObjectData enumerateObjectsWithOptions:0 usingBlock:^(id obj, NSUInteger idx, BOOL *stop) 
         {
             NSDictionary *objectData = (NSDictionary *)obj;
 
-            NSManagedObject *dataObject = [self MR_importFromObject:objectData inContext:localContext];
+            NSManagedObject *dataObject = [self MR_importFromObject:objectData inContext:context];
 
             if ([context obtainPermanentIDsForObjects:[NSArray arrayWithObject:dataObject] error:nil])
             {
               [objectIDs addObject:[dataObject objectID]];
             }
         }];
-    }];
+
     
+
     return [self MR_findAllWithPredicate:[NSPredicate predicateWithFormat:@"self IN %@", objectIDs] inContext:context];
 }
 

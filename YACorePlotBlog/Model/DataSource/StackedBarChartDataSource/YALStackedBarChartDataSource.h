@@ -1,5 +1,5 @@
 //
-//  YAPieChartViewDataSource.h
+//  YAStackedBarChartDataSource.h
 //  YACorePlotBlog
 //
 //  Created by Eugene Goloboyar on 25.12.14.
@@ -7,7 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+@class YALStackedBarChartView;
 
-@interface YAPieChartViewDataSource : NSObject
+@interface YALStackedBarChartDataSource : NSObject
 
 @end

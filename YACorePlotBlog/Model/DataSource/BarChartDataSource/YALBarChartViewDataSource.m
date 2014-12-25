@@ -6,21 +6,21 @@
 //  Copyright (c) 2014 Yalantis. All rights reserved.
 //
 
-#import "YABarChartViewDataSource.h"
+#import "YALBarChartViewDataSource.h"
 
 //view
-#import "YABarChartView.h"
+#import "YALBarChartView.h"
 
 //model
 #import "YAExercise.h"
 
-@interface YABarChartViewDataSource () <YABarChartViewDataSource>
+@interface YALBarChartViewDataSource () <YABarChartViewDataSource>
 
 @property (nonatomic, strong) NSFetchedResultsController *fetchedResultsController;
 
 @end
 
-@implementation YABarChartViewDataSource
+@implementation YALBarChartViewDataSource
 
 #pragma mark - Initialization
 
@@ -39,11 +39,11 @@
 
 #pragma mark - YABarChartViewDataSource
 
-- (NSInteger)numberOfBarsInBarChartView:(YABarChartView *)barChartView {
+- (NSInteger)numberOfBarsInBarChartView:(YALBarChartView *)barChartView {
     return  [self.fetchedResultsController.fetchedObjects count];
 }
 
-- (id <YABarChartProtocol>)barChartView:(YABarChartView *)barChartView barAtIndex:(NSInteger)index {
+- (id <YABarChartProtocol>)barChartView:(YALBarChartView *)barChartView barAtIndex:(NSInteger)index {
     return [self.fetchedResultsController.fetchedObjects objectAtIndex:index];
 }
 

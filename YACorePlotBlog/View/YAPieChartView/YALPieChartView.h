@@ -7,19 +7,19 @@
 //
 
 #import <CorePlot/CorePlot-CocoaTouch.h>
-#import "YAPieChartProtocol.h"
-@class YAPieChartView;
+#import "YALPieChartProtocol.h"
+@class YALPieChartView;
 
 
 //protocol for our public datasource
 @protocol YAPieChartViewDataSource <NSObject>
 
-- (NSInteger)numberOfSectorsInPieChartView:(YAPieChartView *)pieChartView;
-- (id <YAPieChartProtocol>)pieChartView:(YAPieChartView *)pieChartView sectorAtIndex:(NSInteger)index;
+- (NSInteger)numberOfSectorsInPieChartView:(YALPieChartView *)pieChartView;
+- (id <YALPieChartProtocol>)pieChartView:(YALPieChartView *)pieChartView sectorAtIndex:(NSInteger)index;
 
 @end
 
-@interface YAPieChartView: CPTGraphHostingView
+@interface YALPieChartView: CPTGraphHostingView
 
 @property (nonatomic, weak) IBOutlet id <YAPieChartViewDataSource> dataSource;
 

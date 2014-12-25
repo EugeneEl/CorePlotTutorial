@@ -6,12 +6,12 @@
 //  Copyright (c) 2014 Yalantis. All rights reserved.
 //
 
-#import "YAAppDelegate.h"
+#import "YALAppDelegate.h"
 
 //category
 #import "YAExercise+YADefaultData.h"
 
-@implementation YAAppDelegate
+@implementation YALAppDelegate
 
 static NSString *const kYAFirstRunKey = @"kYAFirstRunKey";
 

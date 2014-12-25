@@ -6,11 +6,11 @@
 //  Copyright (c) 2014 Yalantis. All rights reserved.
 //
 
-#import "YAStackedBarChartView.h"
+#import "YALStackedBarChartView.h"
 
-static CGFloat const kAxisXLabelTextFontSize = 12.0f;
-static CGFloat const kLineWidth = 1.0f;
-static CGFloat const kMultiplierForMimimalBarValue = 0.03f;
+static CGFloat const YAAxisXLabelTextFontSize = 12.0f;
+static CGFloat const YALineWidth = 1.0f;
+static CGFloat const YAMultiplierForMimimalBarValue = 0.03f;
 static CGFloat const kDefaultPaddingTop = 10.0f;
 static CGFloat const kDefaultPaddingRight = 10.0f;
 static CGFloat const kDefaultPaddingBottom = 20.0f;
@@ -20,7 +20,7 @@ static CGFloat const kDefaultXAxeLeftOffset = 5.0f;
 static CGFloat const kDefaultXAxeRightOffset = 5.0f;
 static CGFloat const kDefaultDistanceBetweenBars = 10.0f;
 
-@interface YAStackedBarChartView () <CPTBarPlotDataSource, CPTBarPlotDelegate>
+@interface YALStackedBarChartView () <CPTBarPlotDataSource, CPTBarPlotDelegate>
 
 @property (nonatomic, strong) CPTXYGraph *graph;
 @property (nonatomic, assign) NSInteger *numberOfRecords;
@@ -28,7 +28,7 @@ static CGFloat const kDefaultDistanceBetweenBars = 10.0f;
 
 @end
 
-@implementation YAStackedBarChartView
+@implementation YALStackedBarChartView
 
 #pragma mark - Initialization
 
@@ -72,12 +72,12 @@ static CGFloat const kDefaultDistanceBetweenBars = 10.0f;
     
     //set axes' line styles and interval ticks
     CPTMutableLineStyle *gridLineStyle = [CPTMutableLineStyle lineStyle];
-    gridLineStyle.lineWidth = kLineWidth;
+    gridLineStyle.lineWidth = YALineWidth;
     
     //setup style for label for Y axis
     CPTMutableTextStyle *textStyle = [CPTMutableTextStyle textStyle];
     textStyle.fontName = @"Helvetica";
-    textStyle.fontSize = kAxisXLabelTextFontSize;
+    textStyle.fontSize = YAAxisXLabelTextFontSize;
    
     
     //Axes
@@ -165,7 +165,7 @@ static CGFloat const kDefaultDistanceBetweenBars = 10.0f;
         maxHeight = fmaxf(maxHeight, sectionHeight);
     }
     
-    self.defaultMinimalHegiht = maxHeight * kMultiplierForMimimalBarValue;
+    self.defaultMinimalHegiht = maxHeight * YAMultiplierForMimimalBarValue;
     
     // TODO: Refactor dual loops
     maxHeight = 0.f;
@@ -254,7 +254,7 @@ static CGFloat const kDefaultDistanceBetweenBars = 10.0f;
 
 #pragma mark - Properties
 
-- (void)setDataSource:(id<YAStackedBarChartViewDataSource>)dataSource {
+- (void)setDataSource:(id<YALStackedBarChartViewDataSource>)dataSource {
     if (![_dataSource isEqual:dataSource]) {
         _dataSource = dataSource;
         
