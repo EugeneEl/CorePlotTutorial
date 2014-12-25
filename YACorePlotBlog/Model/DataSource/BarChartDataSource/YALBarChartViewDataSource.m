@@ -1,5 +1,5 @@
 //
-//  YABarChartViewDataSource.m
+//  YALBarChartViewDataSource.m
 //  YACorePlotBlog
 //
 //  Created by Eugene Goloboyar on 25.12.14.

@@ -1,5 +1,5 @@
 //
-//  YAAppDelegate.h
+//  YALAppDelegate.h
 //  YACorePlotBlog
 //
 //  Created by Eugene Goloboyar on 15.10.14.

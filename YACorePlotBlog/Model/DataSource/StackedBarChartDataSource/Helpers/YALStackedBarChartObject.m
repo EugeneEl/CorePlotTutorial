@@ -1,12 +1,12 @@
 //
-//  YAStackedBarChartObject.m
+//  YALStackedBarChartObject.m
 //  YACorePlotBlog
 //
 //  Created by Eugene Goloboyar on 17.10.14.
 //  Copyright (c) 2014 Yalantis. All rights reserved.
 //
 
-#import "YAStackedBarChartObject.h"
+#import "YALStackedBarChartObject.h"
 
 //model
 #import "YAExercise.h"
@@ -16,14 +16,14 @@
 #import "NSDate+YABeginAndAndOfDay.h"
 #import "UIColor+YAColorWithHexString.h"
 
-@interface YAStackedBarChartObject ()
+@interface YALStackedBarChartObject ()
 
 @property (nonatomic, copy) NSDate *date;
 @property (nonatomic, strong) YAExercise *exercise;
 
 @end
 
-@implementation YAStackedBarChartObject
+@implementation YALStackedBarChartObject
 
 #pragma mark - Initialization
 
@@ -40,7 +40,7 @@
 + (NSArray *)arrayWithDate:(NSDate *)date exercises:(NSArray *)exercises {
     NSMutableArray *array = [NSMutableArray array];
     for (YAExercise *exercise in exercises) {
-        YAStackedBarChartObject *object = [[self alloc] initWithDate:date exercise:exercise];
+        YALStackedBarChartObject *object = [[self alloc] initWithDate:date exercise:exercise];
         [array addObject:object];
     }
     return [array copy];

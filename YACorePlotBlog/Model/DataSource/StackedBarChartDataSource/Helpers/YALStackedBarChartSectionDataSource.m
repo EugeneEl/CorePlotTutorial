@@ -6,11 +6,11 @@
 //  Copyright (c) 2014 Yalantis. All rights reserved.
 //
 
-#import "YAStackedBarChartSectionDataSource.h"
+#import "YALStackedBarChartSectionDataSource.h"
 
 //model
-#import "YAStackedBarChartObject.h"
-#import "YAStackedBarChartSection.h"
+#import "YALStackedBarChartObject.h"
+#import "YALStackedBarChartSection.h"
 
 //category
 #import "NSDate+YABeginAndAndOfDay.h"
@@ -19,13 +19,13 @@ static NSUInteger const kTestYear = 2014;
 static NSUInteger const kTestMonth = 10;
 static NSUInteger const kTestDay = 14;
 
-@interface YAStackedBarChartSectionDataSource ()
+@interface YALStackedBarChartSectionDataSource ()
 
 @property (nonatomic, strong) NSArray *sections;
 
 @end
 
-@implementation YAStackedBarChartSectionDataSource
+@implementation YALStackedBarChartSectionDataSource
 
 #pragma mark - Initialization
 
@@ -34,7 +34,7 @@ static NSUInteger const kTestDay = 14;
     if (self) {
         NSMutableArray *mutableSectionArray = [NSMutableArray array];
         for (NSDate *date in dates) {
-            YAStackedBarChartSection *section = [[YAStackedBarChartSection alloc] initWithDate:date inContext:context];
+            YALStackedBarChartSection *section = [[YALStackedBarChartSection alloc] initWithDate:date inContext:context];
             [mutableSectionArray addObject:section];
         }
         
@@ -66,12 +66,12 @@ static NSUInteger const kTestDay = 14;
 }
 
 - (NSInteger)numberOfRowsInSection:(NSInteger)section {
-    YAStackedBarChartSection *sectionObject = self.sections[section];
+    YALStackedBarChartSection *sectionObject = self.sections[section];
     return [sectionObject numberOfObjects];
 }
 
-- (YAStackedBarChartObject *)objectAtIndexPath:(NSIndexPath *)indexPath {
-    YAStackedBarChartSection *sectionObject = self.sections[indexPath.section];
+- (YALStackedBarChartObject *)objectAtIndexPath:(NSIndexPath *)indexPath {
+    YALStackedBarChartSection *sectionObject = self.sections[indexPath.section];
     return [sectionObject objectAtIndex:indexPath.row];
 }
 

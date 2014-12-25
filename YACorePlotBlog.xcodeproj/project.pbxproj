@@ -22,9 +22,9 @@
 		3E18985319EE9FE800804CCC /* YACorePlotBlogTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E18985219EE9FE800804CCC /* YACorePlotBlogTests.m */; };
 		3E5A07441A4C2DB900D33BD8 /* YALBarChartViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E5A07361A4C2DB900D33BD8 /* YALBarChartViewDataSource.m */; };
 		3E5A07451A4C2DB900D33BD8 /* YALPieChartViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E5A07391A4C2DB900D33BD8 /* YALPieChartViewDataSource.m */; };
-		3E5A07461A4C2DB900D33BD8 /* YAStackedBarChartObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E5A073D1A4C2DB900D33BD8 /* YAStackedBarChartObject.m */; };
-		3E5A07471A4C2DB900D33BD8 /* YAStackedBarChartSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E5A073F1A4C2DB900D33BD8 /* YAStackedBarChartSection.m */; };
-		3E5A07481A4C2DB900D33BD8 /* YAStackedBarChartSectionDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E5A07411A4C2DB900D33BD8 /* YAStackedBarChartSectionDataSource.m */; };
+		3E5A07461A4C2DB900D33BD8 /* YALStackedBarChartObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E5A073D1A4C2DB900D33BD8 /* YALStackedBarChartObject.m */; };
+		3E5A07471A4C2DB900D33BD8 /* YALStackedBarChartSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E5A073F1A4C2DB900D33BD8 /* YALStackedBarChartSection.m */; };
+		3E5A07481A4C2DB900D33BD8 /* YALStackedBarChartSectionDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E5A07411A4C2DB900D33BD8 /* YALStackedBarChartSectionDataSource.m */; };
 		3E5A07491A4C2DB900D33BD8 /* YALStackedBarChartDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E5A07431A4C2DB900D33BD8 /* YALStackedBarChartDataSource.m */; };
 		3E5A074D1A4C2E3F00D33BD8 /* YALAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E5A074C1A4C2E3F00D33BD8 /* YALAppDelegate.m */; };
 		3EA9E80319F0D76700F73C3D /* YALStackedBarChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EA9E80219F0D76700F73C3D /* YALStackedBarChartView.m */; };
@@ -74,12 +74,12 @@
 		3E5A07361A4C2DB900D33BD8 /* YALBarChartViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YALBarChartViewDataSource.m; sourceTree = "<group>"; };
 		3E5A07381A4C2DB900D33BD8 /* YALPieChartViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YALPieChartViewDataSource.h; sourceTree = "<group>"; };
 		3E5A07391A4C2DB900D33BD8 /* YALPieChartViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YALPieChartViewDataSource.m; sourceTree = "<group>"; };
-		3E5A073C1A4C2DB900D33BD8 /* YAStackedBarChartObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YAStackedBarChartObject.h; sourceTree = "<group>"; };
-		3E5A073D1A4C2DB900D33BD8 /* YAStackedBarChartObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YAStackedBarChartObject.m; sourceTree = "<group>"; };
-		3E5A073E1A4C2DB900D33BD8 /* YAStackedBarChartSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YAStackedBarChartSection.h; sourceTree = "<group>"; };
-		3E5A073F1A4C2DB900D33BD8 /* YAStackedBarChartSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YAStackedBarChartSection.m; sourceTree = "<group>"; };
-		3E5A07401A4C2DB900D33BD8 /* YAStackedBarChartSectionDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YAStackedBarChartSectionDataSource.h; sourceTree = "<group>"; };
-		3E5A07411A4C2DB900D33BD8 /* YAStackedBarChartSectionDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YAStackedBarChartSectionDataSource.m; sourceTree = "<group>"; };
+		3E5A073C1A4C2DB900D33BD8 /* YALStackedBarChartObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YALStackedBarChartObject.h; sourceTree = "<group>"; };
+		3E5A073D1A4C2DB900D33BD8 /* YALStackedBarChartObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YALStackedBarChartObject.m; sourceTree = "<group>"; };
+		3E5A073E1A4C2DB900D33BD8 /* YALStackedBarChartSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YALStackedBarChartSection.h; sourceTree = "<group>"; };
+		3E5A073F1A4C2DB900D33BD8 /* YALStackedBarChartSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YALStackedBarChartSection.m; sourceTree = "<group>"; };
+		3E5A07401A4C2DB900D33BD8 /* YALStackedBarChartSectionDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YALStackedBarChartSectionDataSource.h; sourceTree = "<group>"; };
+		3E5A07411A4C2DB900D33BD8 /* YALStackedBarChartSectionDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YALStackedBarChartSectionDataSource.m; sourceTree = "<group>"; };
 		3E5A07421A4C2DB900D33BD8 /* YALStackedBarChartDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YALStackedBarChartDataSource.h; sourceTree = "<group>"; };
 		3E5A07431A4C2DB900D33BD8 /* YALStackedBarChartDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YALStackedBarChartDataSource.m; sourceTree = "<group>"; };
 		3E5A074B1A4C2E3F00D33BD8 /* YALAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YALAppDelegate.h; sourceTree = "<group>"; };
@@ -251,12 +251,12 @@
 		3E5A073B1A4C2DB900D33BD8 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				3E5A073C1A4C2DB900D33BD8 /* YAStackedBarChartObject.h */,
-				3E5A073D1A4C2DB900D33BD8 /* YAStackedBarChartObject.m */,
-				3E5A073E1A4C2DB900D33BD8 /* YAStackedBarChartSection.h */,
-				3E5A073F1A4C2DB900D33BD8 /* YAStackedBarChartSection.m */,
-				3E5A07401A4C2DB900D33BD8 /* YAStackedBarChartSectionDataSource.h */,
-				3E5A07411A4C2DB900D33BD8 /* YAStackedBarChartSectionDataSource.m */,
+				3E5A073C1A4C2DB900D33BD8 /* YALStackedBarChartObject.h */,
+				3E5A073D1A4C2DB900D33BD8 /* YALStackedBarChartObject.m */,
+				3E5A073E1A4C2DB900D33BD8 /* YALStackedBarChartSection.h */,
+				3E5A073F1A4C2DB900D33BD8 /* YALStackedBarChartSection.m */,
+				3E5A07401A4C2DB900D33BD8 /* YALStackedBarChartSectionDataSource.h */,
+				3E5A07411A4C2DB900D33BD8 /* YALStackedBarChartSectionDataSource.m */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -536,7 +536,7 @@
 				3E5A07491A4C2DB900D33BD8 /* YALStackedBarChartDataSource.m in Sources */,
 				3EBBC4D219EFF76500949778 /* YALPieChartView.m in Sources */,
 				3E5A074D1A4C2E3F00D33BD8 /* YALAppDelegate.m in Sources */,
-				3E5A07481A4C2DB900D33BD8 /* YAStackedBarChartSectionDataSource.m in Sources */,
+				3E5A07481A4C2DB900D33BD8 /* YALStackedBarChartSectionDataSource.m in Sources */,
 				3EDA845119EEA7AD00231395 /* YASet.m in Sources */,
 				3E5A07441A4C2DB900D33BD8 /* YALBarChartViewDataSource.m in Sources */,
 				3EDA844E19EEA78600231395 /* YAExercise.m in Sources */,
@@ -546,12 +546,12 @@
 				3EA9E81019F0E51E00F73C3D /* NSDate+YABeginAndAndOfDay.m in Sources */,
 				3EDA844619EEA61300231395 /* YAModel.xcdatamodeld in Sources */,
 				3EDA846B19EEB1AF00231395 /* UIColor+YAColorWithHexString.m in Sources */,
-				3E5A07461A4C2DB900D33BD8 /* YAStackedBarChartObject.m in Sources */,
+				3E5A07461A4C2DB900D33BD8 /* YALStackedBarChartObject.m in Sources */,
 				3EDA845919EEAE6200231395 /* YALBarChartView.m in Sources */,
 				3E022F2C19F023B6005F7787 /* YAExercise+YAPieChartProtocol.m in Sources */,
 				3EA9E80319F0D76700F73C3D /* YALStackedBarChartView.m in Sources */,
 				3E5A07451A4C2DB900D33BD8 /* YALPieChartViewDataSource.m in Sources */,
-				3E5A07471A4C2DB900D33BD8 /* YAStackedBarChartSection.m in Sources */,
+				3E5A07471A4C2DB900D33BD8 /* YALStackedBarChartSection.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

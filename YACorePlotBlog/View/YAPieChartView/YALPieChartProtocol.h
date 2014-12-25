@@ -1,5 +1,5 @@
 //
-//  YAPieChartProtocol.h
+//  YALPieChartProtocol.h
 //  YACorePlotBlog
 //
 //  Created by Eugene Goloboyar on 16.10.14.

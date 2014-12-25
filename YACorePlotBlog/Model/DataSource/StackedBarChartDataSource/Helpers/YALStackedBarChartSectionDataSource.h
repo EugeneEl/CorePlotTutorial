@@ -8,15 +8,15 @@
 
 #import <Foundation/Foundation.h>
 
-@class YAStackedBarChartObject;
+@class YALStackedBarChartObject;
 
-@interface YAStackedBarChartSectionDataSource : NSObject
+@interface YALStackedBarChartSectionDataSource : NSObject
 
 + (instancetype)dataSourceForLast7DaysInContext:(NSManagedObjectContext *)context;
 
 - (NSInteger)numberOfSection;
 - (NSInteger)numberOfRowsInSection:(NSInteger)section;
 
-- (YAStackedBarChartObject *)objectAtIndexPath:(NSIndexPath *)indexPath;
+- (YALStackedBarChartObject *)objectAtIndexPath:(NSIndexPath *)indexPath;
 
 @end

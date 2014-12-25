@@ -1,5 +1,5 @@
 //
-//  YAStackedBarChartSection.h
+//  YALStackedBarChartSection.h
 //  YACorePlotBlog
 //
 //  Created by Eugene Goloboyar on 17.10.14.
@@ -7,15 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
-@class YAStackedBarChartObject;
+@class YALStackedBarChartObject;
 
-@interface YAStackedBarChartSection : NSObject
+@interface YALStackedBarChartSection : NSObject
 
 //init each section 
 - (instancetype)initWithDate:(NSDate *)date inContext:(NSManagedObjectContext *)context;
 
 - (NSUInteger)numberOfObjects;
 
-- (YAStackedBarChartObject *)objectAtIndex:(NSInteger)index;
+- (YALStackedBarChartObject *)objectAtIndex:(NSInteger)index;
 
 @end

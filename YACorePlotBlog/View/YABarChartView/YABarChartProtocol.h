@@ -1,5 +1,5 @@
 //
-//  YABarChartProtocol.h
+//  YALBarChartProtocol.h
 //  CorePlotBlog
 //
 //  Created by Eugene Goloboyar on 13.10.14.

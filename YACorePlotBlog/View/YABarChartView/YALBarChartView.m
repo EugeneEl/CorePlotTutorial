@@ -1,5 +1,5 @@
 //
-//  YABartChartView.m
+//  YALBartChartView.m
 //  CorePlotBlog
 //
 //  Created by Eugene Goloboyar on 13.10.14.

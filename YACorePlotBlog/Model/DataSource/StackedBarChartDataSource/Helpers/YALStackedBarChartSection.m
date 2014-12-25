@@ -1,21 +1,21 @@
 //
-//  YAStackedBarChartSection.m
+//  YALStackedBarChartSection.m
 //  YACorePlotBlog
 //
 //  Created by Eugene Goloboyar on 17.10.14.
 //  Copyright (c) 2014 Yalantis. All rights reserved.
 //
 
-#import "YAStackedBarChartSection.h"
+#import "YALStackedBarChartSection.h"
 
 //model
 #import "YAExercise.h"
-#import "YAStackedBarChartObject.h"
+#import "YALStackedBarChartObject.h"
 
 //category
 #import "NSDate+YABeginAndAndOfDay.h"
 
-@interface YAStackedBarChartSection ()
+@interface YALStackedBarChartSection ()
 
 @property (nonatomic, copy) NSDate *date;
 
@@ -24,7 +24,7 @@
 
 @end
 
-@implementation YAStackedBarChartSection
+@implementation YALStackedBarChartSection
 
 #pragma mark - Initialization
 
@@ -38,7 +38,7 @@
         NSArray *exercises = [YAExercise MR_findAllWithPredicate:predicate inContext:context];
                               
         //turn all collected exercises with sets to stackedBarChartObjects
-        _objects = [YAStackedBarChartObject arrayWithDate:_date exercises:exercises];
+        _objects = [YALStackedBarChartObject arrayWithDate:_date exercises:exercises];
     }
     return self;
 }
@@ -49,7 +49,7 @@
     return [self.objects count];
 }
 
-- (YAStackedBarChartObject *)objectAtIndex:(NSInteger)index {
+- (YALStackedBarChartObject *)objectAtIndex:(NSInteger)index {
     return self.objects[index];
 }
 

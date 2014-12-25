@@ -1,5 +1,5 @@
 //
-//  YAStackedBarChartView.m
+//  YALStackedBarChartView.m
 //  YACorePlotBlog
 //
 //  Created by Eugene Goloboyar on 17.10.14.

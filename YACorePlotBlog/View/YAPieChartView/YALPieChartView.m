@@ -1,5 +1,5 @@
 //
-//  YAPieChartView.m
+//  YALPieChartView.m
 //  YACorePlotBlog
 //
 //  Created by Eugene Goloboyar on 16.10.14.

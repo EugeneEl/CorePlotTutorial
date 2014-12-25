@@ -1,5 +1,5 @@
 //
-//  YAStackedBarChartObject.h
+//  YALStackedBarChartObject.h
 //  YACorePlotBlog
 //
 //  Created by Eugene Goloboyar on 17.10.14.
@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 @class YAExercise;
 
-@interface YAStackedBarChartObject : NSObject
+@interface YALStackedBarChartObject : NSObject
 
 //each stackedBarChartObject represents sets for specific exercise per day
 //More that one set can be done per day

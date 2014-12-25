@@ -1,5 +1,5 @@
 //
-//  YAStackedBarChartDataSource.m
+//  YALStackedBarChartDataSource.m
 //  YACorePlotBlog
 //
 //  Created by Eugene Goloboyar on 25.12.14.
@@ -12,12 +12,12 @@
 #import "YALStackedBarChartView.h"
 
 //model
-#import "YAStackedBarChartSectionDataSource.h"
-#import "YAStackedBarChartObject.h"
+#import "YALStackedBarChartSectionDataSource.h"
+#import "YALStackedBarChartObject.h"
 
 @interface YALStackedBarChartDataSource () <YALStackedBarChartViewDataSource>
 
-@property (nonatomic, strong) YAStackedBarChartSectionDataSource *sectionDataSource;
+@property (nonatomic, strong) YALStackedBarChartSectionDataSource *sectionDataSource;
 
 @end
 
@@ -28,7 +28,7 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        _sectionDataSource = [YAStackedBarChartSectionDataSource
+        _sectionDataSource = [YALStackedBarChartSectionDataSource
                               dataSourceForLast7DaysInContext:[NSManagedObjectContext MR_defaultContext]];
     }
     return self;
@@ -45,12 +45,12 @@
 }
 
 - (CGFloat)stackedBarChartView:(YALStackedBarChartView *)stackedBarChartView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    YAStackedBarChartObject *object = [self.sectionDataSource objectAtIndexPath:indexPath];
+    YALStackedBarChartObject *object = [self.sectionDataSource objectAtIndexPath:indexPath];
     return [object height];
 }
 
 - (UIColor *)stackedBarChartView:(YALStackedBarChartView *)stackedBarChartView colorForRowAtIndexPath:(NSIndexPath *)indexPath {
-    YAStackedBarChartObject *object = [self.sectionDataSource objectAtIndexPath:indexPath];
+    YALStackedBarChartObject *object = [self.sectionDataSource objectAtIndexPath:indexPath];
     return [object color];
 }
 
