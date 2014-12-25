@@ -11,7 +11,7 @@
 
 @interface YAStackedBarChartObject : NSObject
 
-//each stackedBarChartObject represents set for specific exercise
+//each stackedBarChartObject represents sets for specific exercise per day
 //More that one set can be done per day
 
 - (instancetype)initWithDate:(NSDate *)date exercise:(YAExercise *)exercise;
@@ -20,6 +20,9 @@
 + (NSArray *)arrayWithDate:(NSDate *)date exercises:(NSArray *)exercises;
 
 //any stackedBarChartObject can return its color and height
+
+//calculate height for each stackedBarChartObject
+//total height equals to sum of all reps for exercise done on specific date
 - (CGFloat)height;
 - (UIColor *)color;
 

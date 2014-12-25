@@ -33,6 +33,7 @@
         _date = date;
         _exercise = exercise;
     }
+    NSLog(@"called");
     return self;
 }
 

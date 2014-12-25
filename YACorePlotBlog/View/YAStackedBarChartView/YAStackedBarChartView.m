@@ -15,10 +15,10 @@ static CGFloat const kDefaultPaddingTop = 10.0f;
 static CGFloat const kDefaultPaddingRight = 10.0f;
 static CGFloat const kDefaultPaddingBottom = 20.0f;
 static CGFloat const kDefaultPaddingLeft = 40.0f;
-static CGFloat const kDefaultSectionWidth = 5.0f;
+static CGFloat const kDefaultSectionWidth = 20.0f;
 static CGFloat const kDefaultXAxeLeftOffset = 5.0f;
 static CGFloat const kDefaultXAxeRightOffset = 5.0f;
-static CGFloat const kDefaultDistanceBetweenBars = 5.0f;
+static CGFloat const kDefaultDistanceBetweenBars = 10.0f;
 
 @interface YAStackedBarChartView () <CPTBarPlotDataSource, CPTBarPlotDelegate>
 
@@ -181,16 +181,12 @@ static CGFloat const kDefaultDistanceBetweenBars = 5.0f;
         }
         maxHeight = fmaxf(maxHeight, sectionHeight);
     }
-    
-    if (self.defaultMinimalHegiht < maxHeight) {
-        self.defaultMinimalHegiht = maxHeight;
-    }
-    
+        
     //calculatedXAxisWidth
     CGFloat xAxisWidth = 0.f;
     xAxisWidth +=_offsetFromLeft + _sectionWidth * numberOfSection + _distanceBetweenBars * (numberOfSection - 1) + _offsetFromRight;
     
-    plotSpace.yRange = [CPTPlotRange plotRangeWithLocation:[@0 decimalValue] length:[@(maxHeight+5.f) decimalValue]];
+    plotSpace.yRange = [CPTPlotRange plotRangeWithLocation:[@0 decimalValue] length:[@(maxHeight+15.f) decimalValue]];
     plotSpace.xRange = [CPTPlotRange plotRangeWithLocation:[@0 decimalValue] length:[@(xAxisWidth) decimalValue]];
     
     CPTXYAxisSet *axisSet = (CPTXYAxisSet *)self.graph.axisSet;

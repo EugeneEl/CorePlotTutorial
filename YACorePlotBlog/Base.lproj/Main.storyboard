@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6249" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="hix-jN-OJ1">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="hix-jN-OJ1">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6243"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -62,7 +62,7 @@
         <!--Item-->
         <scene sceneID="XYz-ct-9np">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="nKs-s9-pL1" customClass="YABarChartViewController" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="nKs-s9-pL1" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="BEg-CH-vmo"/>
                         <viewControllerLayoutGuide type="bottom" id="cLP-Wp-6IU"/>
@@ -72,7 +72,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <connections>
-                            <outlet property="dataSource" destination="nKs-s9-pL1" id="qcZ-0p-B8u"/>
+                            <outlet property="dataSource" destination="nem-0i-pZw" id="ZiX-ek-cme"/>
                         </connections>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="l7t-9F-rkD"/>
@@ -82,6 +82,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MGW-g3-qyG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="nem-0i-pZw" customClass="YABarChartViewDataSource"/>
             </objects>
             <point key="canvasLocation" x="-51" y="-741"/>
         </scene>
@@ -154,7 +155,7 @@
         <!--Bar-->
         <scene sceneID="n3i-Ac-DzM">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="OEV-SE-Yck" customClass="YAPieChartViewController" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="OEV-SE-Yck" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="MY9-78-mQD"/>
                         <viewControllerLayoutGuide type="bottom" id="0Z1-s4-pLA"/>
@@ -164,7 +165,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <connections>
-                            <outlet property="dataSource" destination="OEV-SE-Yck" id="91y-ea-2XI"/>
+                            <outlet property="dataSource" destination="IVr-B9-uN3" id="lYy-zV-sso"/>
                         </connections>
                     </view>
                     <tabBarItem key="tabBarItem" title="Bar" id="YdV-H3-9zw"/>
@@ -174,13 +175,14 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MHw-7R-jjs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="IVr-B9-uN3" customClass="YAPieChartViewDataSource"/>
             </objects>
             <point key="canvasLocation" x="-51" y="632"/>
         </scene>
-        <!--Stacked Bar Chart Controller-->
+        <!--View Controller-->
         <scene sceneID="UGm-hS-65Z">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="G57-uY-Mt1" customClass="YAStackedBarChartController" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="G57-uY-Mt1" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="DUi-GE-iFU"/>
                         <viewControllerLayoutGuide type="bottom" id="MFa-dO-chN"/>
@@ -189,6 +191,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="288" height="289"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <connections>
+                            <outlet property="dataSource" destination="eFJ-SJ-sdW" id="Jif-H5-nmy"/>
+                        </connections>
                     </view>
                     <toolbarItems/>
                     <connections>
@@ -196,6 +201,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sVd-ar-D74" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="eFJ-SJ-sdW" customClass="YAStackedBarChartDataSource"/>
             </objects>
             <point key="canvasLocation" x="-19" y="-66"/>
         </scene>

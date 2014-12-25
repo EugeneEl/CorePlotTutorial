@@ -36,11 +36,6 @@ static NSUInteger const kMultiplierToAdjustAxisYSize = 10;
 
 #pragma mark - Initialization
 
-- (void)awakeFromNib {
-    [self commonInit];
-    [self reloadData];
-}
-
 - (instancetype)initWithCoder:(NSCoder *)aDecoder {
     self = [super initWithCoder:aDecoder];
     if (self) {
@@ -156,11 +151,7 @@ static NSUInteger const kMultiplierToAdjustAxisYSize = 10;
         id <YABarChartProtocol> barProtocol = [self.dataSource barChartView:self barAtIndex:i];
         maxValue = fmaxf(maxValue, [[barProtocol barValue] integerValue]);
     }
-    
-    if (self.defaultMinimalBarValue < maxValue) {
-        self.defaultMinimalBarValue = maxValue;
-    }
-    
+        
     //recalculated plotSpace for X axe with maxWidth
     //recalculated plotSpace for Y axe with number of plots multipled by some constant
     plotSpace.xRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromCGFloat(0.f)
